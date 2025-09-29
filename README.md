@@ -1,8 +1,26 @@
-# template-repository - Branch DOCS
+# Como contribuir no MkDocs
 
-Template de Repositório para a matéria de Métodos de Desenvolvimento de Software lecionado pelo professor Ricardo Ajax.
+crie um ambiente virtual (recomendado)
 
-Essa Branch de desenvolvimento "docs" deve ser mantida somente para fins de documentação, onde já se encontra uma estrutura inicial montada com MKDocs.
+```bash
+python -m venv .venv
+```
+ative
+```bash
+# windows
+.venv\Scripts\activate
+# linux / mac
+source .venv/bin/activate
+```
+instale as dependências em requirements.txt
+```bash 
+pip install -r requirements.txt
+```
+inicie o servidor de desenvolvimento
+```bash
+mkdocs serve
+```
+acesse o endereço http://localhost:8000
 
 ## Especificações Técnicas do Repositório
 

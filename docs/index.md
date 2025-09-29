@@ -1,17 +1,12 @@
-# Welcome to MkDocs
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
+# Membros
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<div class="team-container">
+  {% for member in extra.team %}
+    <a class="team-card" href="https://github.com/{{ member.username }}" target="_blank" rel="noopener">
+      <img src="https://avatars.githubusercontent.com/{{ member.username }}?s=120" alt="{{ member.name }}">
+      <p>{{ member.name }}</p>
+    </a>
+  {% endfor %}
+</div>
