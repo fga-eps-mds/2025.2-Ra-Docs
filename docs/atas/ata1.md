@@ -40,6 +40,6 @@ do post da proposta do jogo.
 ## **Próxima Reunião dia 22/09 quarta**
 Objetivo: **Definir escopo do projeto e do produto*, *Escrever no word a ser entregue**
 
-`TODO`:
+### `Próximas etapas`:
 - Fazer o documento entrega dia 04/10/2025 
 - Revisar formatação ABNT para os arquivos a serem entregues

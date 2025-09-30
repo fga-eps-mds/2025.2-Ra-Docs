@@ -1,5 +1,5 @@
 #### Data: 22/09/2025
-#### Horário de início: 20:00
+#### Horário de início: 20:00-22:00
 
 ## Participantes:
 - Gabriel Alves
@@ -23,6 +23,11 @@ Foi realizada uma dinâmica seguindo o modelo de Lean Inception pela ferramenta 
 - Brainstorm de funcionalidades
 - Revisão Técnica de Negócio e de UX
 - Criação de um sequenciador
+
+### Figma da Leaninception:
+<div>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/board/OvHe9jFciGpdRbvyPZmsL4/Template-Lean-Inception?node-id=0-1&embed-host=share" allowfullscreen></iframe>
+</div>
 
 ### O que foi decidido:
 
@@ -59,18 +64,6 @@ incrementos (melhorias contínuas):
 
 ---
 
-## Próxima Reunião
-**Data:** 29/09 (quarta-feira)  
-**Objetivo:** Início de protótipo de alta fidelidade para o produto e preparação de documentação no mkdocs.
-
-### `TODO`:
-- Iniciar protótipo de alta fidelidade no Figma
-- Definir identidade visual + paleta de cores
-- Produzir o documento de visão a ser entregue no dia **04/10/2025**  
-- Revisar formatação **ABNT** dos arquivos a serem entregues  
-
----
-
 ## Observações
 A reunião contemplou:
 - Construção de personas  
@@ -80,3 +73,16 @@ A reunião contemplou:
 - Criação de um sequenciador  
 
 > A dinâmica seguiu o modelo de **Lean Inception**, voltado para a definição do MVP do projeto de software.
+
+---
+
+## Próxima Reunião
+**Data:** 29/09 (segunda-feira)  
+**Objetivo:** Início de protótipo de alta fidelidade para o produto e preparação de documentação no mkdocs.
+
+### `Próximas etapas`:
+- Iniciar protótipo de alta fidelidade no Figma
+- Definir identidade visual + paleta de cores
+- Produzir o documento de visão a ser entregue no dia **04/10/2025**  
+- Revisar formatação **ABNT** dos arquivos a serem entregues  
+

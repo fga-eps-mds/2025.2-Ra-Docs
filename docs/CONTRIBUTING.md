@@ -1,8 +1,8 @@
-# 🚀 Guia de Contribuição - UnB&Fit
+# 🚀 Guia de Contribuição - Aton
 
 Olá, dev\! 👋
 
-Ficamos muito felizes com seu interesse em contribuir com o projeto **UnB&Fit**. Este guia foi criado para que sua contribuição seja uma experiência tranquila e produtiva, garantindo a organização e a qualidade do nosso código.
+Ficamos muito felizes com seu interesse em contribuir com o projeto **Aton**. Este guia foi criado para que sua contribuição seja uma experiência tranquila e produtiva, garantindo a organização e a qualidade do nosso código.
 
 Seguir estas diretrizes nos ajuda a manter o projeto saudável e fácil de manter.
 
@@ -65,7 +65,11 @@ Quando estiver pronto para salvar seu progresso, use commits que sigam o nosso p
 git add .
 
 # 2. Crie o commit seguindo o padrão (veja a seção abaixo)
-git commit -m "feat(login): adicionar autenticação com e-mail e senha"
+git commit -m "feat(login): adicionar autenticação com e-mail e senha
+
+Co-authored-by: Rodrigo <rodrigo@exemplo.com>
+Co-authored-by: Giovana <giovana@exemplo.com>
+"
 ```
 
 ### Passo 4: Abra um Pull Request (PR)
@@ -98,9 +102,18 @@ Parabéns, sua contribuição foi concluída\! 🎉
 
 Usamos um padrão para manter nosso histórico de commits limpo e legível. A estrutura é:
 
-`<tipo>(<escopo>): <assunto>`
+```bash
+<tipo>(<escopo>): <assunto>
 
-**Referência completa:** [Padrões de Commits do iuricode](https://github.com/iuricode/padroes-de-commits)
+Co-authored-by: Nome do Primeiro Coautor <primeiro@exemplo.com>
+Co-authored-by: Nome do Segundo Coautor <segundo@exemplo.com>
+```
+> **Use sempre aos Co-authors**, eles ajudam a identificar quem fez o commit. Atente-se à nomenclatura: `Co-authored-by: Nome do Coautor <email@exemplo.com>` sem isso não funciona.
+
+
+- **Referência completa:** [Padrões de Commits do iuricode](https://github.com/iuricode/padroes-de-commits)
+
+- **Co-authors:** [Github docs](https://docs.github.com/pt/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)
 
 #### **Tipos mais comuns:**
 
@@ -114,14 +127,18 @@ Usamos um padrão para manter nosso histórico de commits limpo e legível. A es
 
 #### **Exemplos de bons commits:**
 
-```
+```bash
 feat(auth): implementar fluxo de login com e-mail e senha
+
 fix(feed): corrigir crash ao carregar evento sem imagem
+
 docs(contributing): adicionar guia de contribuição
+
 refactor(user): mover lógica de validação para um serviço separado
+
 test(auth): adicionar testes unitários para o serviço de autenticação
 ```
 
 Qualquer dúvida, não hesite em perguntar no nosso canal de comunicação\!
 
-**Obrigado por construir o UnB&Fit com a gente\!**
+**Obrigado por construir o Aton com a gente\!**

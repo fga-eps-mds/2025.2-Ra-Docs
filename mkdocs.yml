@@ -1,8 +1,8 @@
-site_name: Documentação UnB&Fit
+site_name: Documentação Aton
 repo_url: https://github.com/FGA0138-MDS-Ajax/2025.2-Ra
-repo_name: GitHub/UnB&Fit
-site_description: Documentação do projeto UnB&Fit
-site_author: Equipe UnB&Fit
+repo_name: GitHub/Aton
+site_description: Documentação do projeto Aton
+site_author: Equipe Aton
 
 nav:
   - Home: index.md
@@ -19,7 +19,7 @@ nav:
     - Concepção de produto e ideias: atas/ata1.md
     - Definições de papéis: atas/ata2.md
     - Lean inception: atas/ata3.md
-    - Prototipação + documentação: atas/ata4.md
+    - Cont. de Lean inception: atas/ata4.md
 
   - Arquitetura:
     - Introdução: arquitetura/introducao.md
@@ -33,7 +33,6 @@ theme:
   name: material
   language: pt-BR
   palette:
-    
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
@@ -42,9 +41,9 @@ theme:
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default 
-      primary: blue
-      accent: green
+      scheme: default
+      primary: grey
+      accent: deep orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -52,18 +51,29 @@ theme:
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue
-      accent: teal
+      primary: black
+      accent: deep orange
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
 
   features:
     - navigation.footer
-  logo: assets/logo.png
+  logo: assets/logo.svg
   favicon: assets/favicon.ico
   
 markdown_extensions:
+  # Para a Arquitetura posteriormente
+
+  # - pymdownx.superfences:
+  #     custom_fences:
+  #       - name: mermaid
+  #         class: mermaid
+  #         format: !!python/name:pymdownx.superfences.fence_code_format
+  
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
   - toc:
       title: Sumário
 
@@ -71,6 +81,8 @@ markdown_extensions:
 plugins:
   - search
   - macros
+  - glightbox
+
 
 extra_css:
   - assets/css/home.css
@@ -98,8 +110,8 @@ extra:
     username: osamuelleite
   - name: Pedro Inácio Santos
     username: pedrossantoss
-  copyright: Copyright &copy; 2025 UnB&Fit
-  version: 1.0.0
+  copyright: Copyright &copy; 2025 Aton
+  versioning: 1.0.0
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/FGA0138-MDS-Ajax/2025.2-Ra

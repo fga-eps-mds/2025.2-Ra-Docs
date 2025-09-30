@@ -1,5 +1,5 @@
 #### Data: 17/09/2025
-#### Horário de início: 20:00
+#### Horário de início: 20:00-21:00
 
 ## Participantes:
 - Gabriel Alves
@@ -72,7 +72,7 @@ O Scrum Master precisa ter perfil colaborativo, paciente, diplomático e proativ
 - Banco de dados: a definir (possivelmente PostgreSQL ou MongoDB)
 
 #### **Logo e identidade**
-Até agora o nome mais aceito: UnB&Fit mas ainda estamos decidindo, se vier uma ideia nova mandem aq
+Até agora o nome mais aceito: UnB&Fit mas ainda estamos decidindo, se vier uma ideia está em aberto para discussão.
 Sobre as cores para logo e identidade também, sugestões são sempre bem vindas.
 
 #### **Início de protótipo na próxima sprint:**
@@ -90,6 +90,6 @@ Para os que querem explorar as vertentes, Entender que será necessário "sair u
 
 Fazendo isso creio que teremos um time equilibrado e que agradará a maioria durante o processo, pois simulará um time com pessoas com mais experiência que lidam com que tem menos, o que se assemelha bastante com o mercado real.
 
-`TODO`:
+### `Próximas etapas`:
 Fazer o documento entrega dia 04/10/2025 
 Revisar formatação ABNT para os arquivos a serem entregues
