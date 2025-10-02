@@ -76,7 +76,8 @@ markdown_extensions:
   - pymdownx.blocks.caption
   - toc:
       title: Sumário
-
+  - pymdownx.arithmatex: ## Plugin Latex para fórmulas de métrica
+      generic: true
 
 plugins:
   - search
@@ -87,6 +88,12 @@ plugins:
 extra_css:
   - assets/css/home.css
   - assets/css/global.css
+  - https://unpkg.com/katex@0/dist/katex.min.css # Plugin Latex
+
+extra_javascript:
+  - assets/javascript/katex.js # Plugin Latex
+  - https://unpkg.com/katex@0/dist/katex.min.js # Plugin Latex
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js # Plugin Latex
 
 extra:
   team:
