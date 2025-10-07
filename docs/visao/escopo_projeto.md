@@ -2,7 +2,17 @@
 
 ## Backlog do produto
 
-`TODO:` Adicionar descrição para o backlog do produto
+O Backlog do Produto (Product Backlog) é uma lista ordenada e emergente de tudo o que é necessário para melhorar o produto.
+
+Um produto é um veículo para entregar valor. Ele possui um limite claro, partes interessadas conhecidas e usuários ou clientes bem definidos. Um produto pode ser um serviço, um produto físico ou algo mais abstrato.
+Itens do product backlog que podem ser concluídos em uma sprint (O coração do Scrum, onde as ideias são transformadas em valor) são considerados prontos para seleção no evento de planejamento da sprint.
+Eles geralmente adquirem esse grau de transparência após as atividades de refinamento. O ato de decompor e definir com mais detalhes os itens do Product Backlog em itens menores e mais precisos é conhecido como refinamento do product backlog. Essa é uma atividade contínua para adicionar detalhes, como descrição, ordem e tamanho.
+
+O Product Goal descreve um estado futuro do produto. Ele está no Product Backlog. O restante do Product Backlog emerge para definir "o quê" irá cumprir o Product Goal. Product Goal é o objetivo de longo prazo, ele deve ser cumprido (ou abandonado) antes de assumir um próximo.
+
+Os Desenvolvedores que realizarão o trabalho são responsáveis pelo dimensionamento (estimativa de tamanho). O Product Owner (Dono do Produto) pode influenciar os Developers ajudando-os a entender e selecionar as compensações
+
+Um backlog do produto bem estruturado e atualizado permite um alinhamento da equipe às metas do produto; visibilidade ao progresso e às próximas entregas; facilidade de adaptação a mudanças de prioridade e a garantia de que o time esteja sempre focado em entregar valor ao usuário final.
 
 ## Perfis
 
