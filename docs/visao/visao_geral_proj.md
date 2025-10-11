@@ -44,25 +44,14 @@ atualizado de maneira sucessiva, a partir da realização de cada ciclo (sprint,
 
 
 ### Gerenciamento de Riscos
-`TODO: implementar o gerenciamento de riscos`
-
-```
-[O Gerenciamento de Riscos consiste em tarefas, como:
-
-    Identificar todos os riscos possíveis e detectáveis em cada fase do projeto;
-
-    Executar as ações para mitigar os riscos que tenham um alto grau de exposição ao risco caso este ocorra na Lista de Riscos do Projeto;
-
-    Fazer uma revisão da lista dos riscos periodicamente, com o propósito de averiguar uma possível incidência de um risco e ver se há outros riscos ainda não relatados;
-
-    Em caso de confirmação de um risco previsto, agir no sentido de contingenciá-lo conforme programado;
-
-    Registrar os riscos no Painel de Controle do Projeto e no Plano do Projeto (Riscos iniciais);
-
-Os riscos do projeto devem ser acompanhados e atualizados periodicamente.
-
-Sugestão: construir um quadro contendo: o risco, grau de exposição, mitigação (se necessária, pois depende do grau de exposição) e plano de contingência.
-```
+| Risco | Categoria | Grau de exposição (Baixo/Médio/Alto) | Fonte/Origem | Descrição e Impacto | Ação de Mitigação/Plano de Contingencia | 
+|---|---|---|---|---|---|
+| Atrasos | Cronograma | Baixo |Escopo mau dimensionado ou alteração no plano da disciplina | Imprevistos que comprometam o cronograma de releases do projeto | Realizar Sprint Review e verificações constantes do backlog do produto |
+| Mudanças de funções | Equipe | Baixo | Capacitação técnica insuficiente para a atividade | Alteração de responsabilidades ou funções entre membros de equipe | Manter comunicação direta e transparente quando distribuir atividades para os membros, a fim de equiparar a Task com a capacidade de execução do membro |
+| Desalinhamento/Conflito | Equipe | Baixo |Comunicação ineficiente | Impacto negativo no clima organizacional | Manter a proatividade em ajudar os demais integrantes. Realizar comunicações oficiais em canais validados|
+| Mudança de escopo | Escopo | Baixo |Alteração no Backlog | Pode impactar nos prazos ou na realização de múltiplas tasks ao mesmo tempo pela equipe | Comunicar intenção de escolhas de tasks na sprint review prescedente|
+| Falta ou indisponibilidade de algum membro | Equipe | Médio | Doença/Provas |Sobrecarga de outros membros | Trabalhos realizados em duplas para que haja a continuidade da execução|
+| Incompatibilidade de stack | Ferramentas | Médio | Ambientes de desenvolvimento diversos |Pode haver bugs no software | Estruturar corretamente o documento de arquitetura e seguir as diretrizes à risca |
 
 ### Critérios de Replanejamento
 
