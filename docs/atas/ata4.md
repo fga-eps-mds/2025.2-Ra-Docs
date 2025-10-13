@@ -83,11 +83,11 @@ A reunião contemplou:
 ## Próxima Reunião
 
 **Data:** 06/09 (segunda-feira)  
-**Objetivo:** Início de protótipo de alta fidelidade para o produto e preparação de documentação no mkdocs.
+**Objetivo:** Início de protótipo de baixa fidelidade para o produto e preparação de documentação no mkdocs .
 
 ### `Próximas etapas`:
 
-- Reformular protótipo de alta fidelidade no Figma com novas cores e logo
+- Reformular protótipo de baixa fidelidade no Figma com novas cores e logo e discussão do MVP.
 - Traduzir o documento de visão para documentação online
 
 ---
