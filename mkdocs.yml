@@ -1,0 +1,129 @@
+site_name: Documentação Aton
+repo_url: https://github.com/FGA0138-MDS-Ajax/2025.2-Ra
+repo_name: GitHub/Aton
+site_description: Documentação do projeto Aton
+site_author: Equipe Aton
+
+nav:
+  - Home: index.md
+  - Documento de visão:
+    - Visão Geral do Produto: visao/visao_geral_prod.md
+    - Visão Geral do Projeto: visao/visao_geral_proj.md
+    - Processo de Desenvolvimento: visao/processo_desenv.md
+    - Escopo do Projeto: visao/escopo_projeto.md
+    - Métricas e Medições: visao/metricas_medicoes.md
+    - Testes de Software: visao/testes.md
+    - Referências: visao/ref.md
+
+  - Atas de reuniões:
+    - Concepção de produto e ideias: atas/ata1.md
+    - Definições de papéis: atas/ata2.md
+    - Lean inception: atas/ata3.md
+    - Cont. de Lean inception: atas/ata4.md
+    - Sequenciador do MVP: atas/ata5.md
+    - Iniciação do projeto: atas/ata6.md
+
+  - Arquitetura:
+    - Introdução: arquitetura/introducao.md
+    - Representação Arquitetural: arquitetura/representacao_arquitetural.md
+    - Referências: arquitetura/ref.md
+
+  - Guia de Contribuição: CONTRIBUTING.md
+
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: grey
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  features:
+    - navigation.footer
+  logo: assets/logo.svg
+  favicon: assets/favicon.ico
+  
+markdown_extensions:
+  # Para a Arquitetura posteriormente
+
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - toc:
+      title: Sumário
+  - pymdownx.arithmatex: ## Plugin Latex para fórmulas de métrica
+      generic: true
+
+plugins:
+  - search
+  - macros
+  - glightbox
+
+
+extra_css:
+  - assets/css/home.css
+  - assets/css/global.css
+  - https://unpkg.com/katex@0/dist/katex.min.css # Plugin Latex
+
+extra_javascript:
+  - assets/javascript/katex.js # Plugin Latex
+  - https://unpkg.com/katex@0/dist/katex.min.js # Plugin Latex
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js # Plugin Latex
+
+extra:
+  team:
+  - name: Gabriel Alves
+    username: CODEbugging3000
+  - name: Rodrigo Àtila
+    username: Rodrigoatila09
+  - name: Yan Rodrigues
+    username: yanrdgs-dev
+  - name: Gabriel Mota
+    username: LasagnaIsLove
+  - name: Matheus Pinheiro
+    username: matheus-06
+  - name: Ângelo Cordova
+    username: angeloldev
+  - name: Giovana Martins de Brito
+    username: Giih-martins
+  - name: Guilherme Mendes
+    username: Guilherme-Reis-Mendes
+  - name: Samuel Leite
+    username: osamuelleite
+  - name: Pedro Inácio Santos
+    username: pedrossantoss
+  copyright: Copyright &copy; 2025 Aton
+  versioning: 1.0.0
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/FGA0138-MDS-Ajax/2025.2-Ra
+    - icon: fontawesome/solid/envelope
+      link: mailto:241025523@aluno.unb.br
+  
