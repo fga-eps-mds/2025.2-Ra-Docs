@@ -1,0 +1,24 @@
+/* text center */
+.centered-text {
+  text-align: center;
+}
+
+/* img center */
+.centered-img {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.md-header__button.md-logo {
+    margin: 0;
+    padding: 0;
+}
+
+/* extra.css */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    height: 3rem; /* Adjust this value as needed */
+    width: auto; /* Maintain aspect ratio */
+}
