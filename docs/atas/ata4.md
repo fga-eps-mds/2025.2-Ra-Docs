@@ -82,7 +82,7 @@ A reunião contemplou:
 
 ## Próxima Reunião
 
-**Data:** 06/09 (segunda-feira)  
+**Data:** 06/10 (segunda-feira)  
 **Objetivo:** Início de protótipo de baixa fidelidade para o produto e preparação de documentação no mkdocs .
 
 ### `Próximas etapas`:

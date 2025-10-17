@@ -89,7 +89,7 @@ Foi realizada uma dinâmica seguindo o modelo de Lean Inception pela ferramenta 
 
 ## Próxima Reunião
 
-**Data:** 13/09 (segunda-feira)  
+**Data:** 13/10 (segunda-feira)  
 **Objetivo:** Levantamento de requisitos, construção do backlog do produto e preparação de documentação no mkdocs.
 
 ### `Próximas etapas`:

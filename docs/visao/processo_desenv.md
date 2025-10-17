@@ -1,12 +1,12 @@
 # 3 Processo de desenvolvimento de Software
-    
+
 Esta seção busca aprofundar sobre as decisões tomadas acerca da metodologia de desenvolvimento, práticas adotadas e a maneira como o time escolheu se desenvolver.
 
 ---
 
 ## 3.1 Metodologia adotadas
-        
-Assim como citado anteriormente, foi escolhido Scrum como metodologia principal, porém diferentemente da sua aplicação habitual, surgiram alguams adaptações buscando um resultado mais satisfatória do software a ser desenvolvido. O Scrum é um framework ágil, logo, é fundamentado em ciclos curtos de trabalho, *com reuniões diárias* e revisões e rebobinações a cada encontro.
+
+Assim como citado anteriormente, foi escolhido ScrumXP como metodologia principal, que une as práticas do Scrum e do Extreme Programming (XP), porém diferentemente da sua aplicação habitual, surgiram algumas adaptações buscando um resultado mais satisfatória do software a ser desenvolvido. O Scrum é um framework ágil, logo, é fundamentado em ciclos curtos de trabalho, *com reuniões diárias* e revisões e rebobinações a cada encontro.
 
 No entanto, para adequar a realidade da equipe e ao escopo do projeto a equipe optou por adpat o formato das reuniões. Ao contrário das Daily Scrums, que acontecem diariamente, foram estabelecidades reuniões semanais.
 

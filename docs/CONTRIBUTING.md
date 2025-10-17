@@ -67,6 +67,8 @@ git add .
 # 2. Crie o commit seguindo o padrão (veja a seção abaixo)
 git commit -m "feat(login): adicionar autenticação com e-mail e senha
 
+issue associada: #42
+
 Co-authored-by: Rodrigo <rodrigo@exemplo.com>
 Co-authored-by: Giovana <giovana@exemplo.com>
 "
@@ -104,6 +106,9 @@ Usamos um padrão para manter nosso histórico de commits limpo e legível. A es
 
 ```bash
 <tipo>(<escopo>): <assunto>
+
+
+issue associada: #<numero-da-issue>
 
 Co-authored-by: Nome do Primeiro Coautor <primeiro@exemplo.com>
 Co-authored-by: Nome do Segundo Coautor <segundo@exemplo.com>
