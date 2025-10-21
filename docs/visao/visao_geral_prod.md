@@ -39,7 +39,7 @@ Promover a integração da comunidade universitária por meio do esporte e do la
 ### Linguagens: 
 
 - Typescript/Javascript; 
-- Tsx/Jsx; 
+- Tsx/Jsx (React components); 
 
 ### Ferramentas: 
 
@@ -57,11 +57,14 @@ Promover a integração da comunidade universitária por meio do esporte e do la
 - iOS;
 - Web (Talvez no futuro).
 
-### Frameworks:
+### Frameworks e bibliotecas:
 
 - ScrumXP (adaptado);
 - React Native; 
 - Expo;
 - Node JS; 
+- Prisma ORM;
+- Turborepo;
+- ESLint;
 - Jest; 
 - ExpressJS

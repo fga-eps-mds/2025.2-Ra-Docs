@@ -1,0 +1,2 @@
+# Autenticação e Autorização
+Esta sessão aborda os conceitos de autenticação e autorização da API, incluindo métodos de autenticação, gerenciamento de tokens e práticas recomendadas para proteger recursos.

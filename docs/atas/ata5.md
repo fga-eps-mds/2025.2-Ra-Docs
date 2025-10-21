@@ -14,6 +14,7 @@
 - Samuel Leite
 - Pedro Inácio Santos
 - PEDRO LUCAS BARBOSA ( Representante da Pesadelo )
+- Yan Rodrigues
 
 ## Objetivos
 
