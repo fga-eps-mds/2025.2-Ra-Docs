@@ -13,6 +13,7 @@
 - Guilherme Mendes
 - Samuel Leite
 - Pedro Inácio Santos
+- Yan Rodrigues
 
 ## Objetivos
 

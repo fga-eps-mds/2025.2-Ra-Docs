@@ -23,6 +23,15 @@ nav:
     - Sequenciador do MVP: atas/ata5.md
     - Iniciação do projeto: atas/ata6.md
 
+  - Documentação da API:
+    - Introdução à API: API/introducao.md
+    - Endpoints de Usuário: API/user.md
+    - Endpoints de Grupo: API/group.md
+    - Endpoints de Partidas: API/match.md
+    - Endpoint de Posts/eventos: API/post.md
+    - Autenticação e Autorização: API/auth.md
+    - Referências: API/ref.md
+  
   - Arquitetura:
     - Introdução: arquitetura/introducao.md
     - Representação Arquitetural: arquitetura/representacao_arquitetural.md
