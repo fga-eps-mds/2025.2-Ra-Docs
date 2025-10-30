@@ -34,7 +34,10 @@ nav:
   
   - Arquitetura:
     - Introdução: arquitetura/introducao.md
-    - Representação Arquitetural: arquitetura/representacao_arquitetural.md
+    - Definições Gerais: arquitetura/definicoes_gerais.md
+    - Detalhamento: arquitetura/detalhamento.md
+    - Arquitetura x Produto: arquitetura/arquitetura_produto.md
+    - Abstração e Implementação: arquitetura/abstracao_implemantacao.md
     - Referências: arquitetura/ref.md
 
   - Guia de Contribuição: CONTRIBUTING.md
