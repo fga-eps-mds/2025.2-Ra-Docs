@@ -51,7 +51,7 @@ A seleção de tecnologias foi baseada na simplicidade, produtividade e no objet
 
 ## 2.9 Restrições Adicionais
 
-Esta aplicação foi projetada para atender restrições adicionais que garantem seu poder de negócio, requisitos técnicos, qualidade e segurança dos dados de pequenos produtores rurais.
+Esta aplicação foi projetada para atender restrições adicionais que garantem seu poder de negócio da aplicação, requisitos técnicos, qualidade e segurança dos dados de usuários.
 
 ### 2.9.1 Restrições Negociais
 
