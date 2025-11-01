@@ -61,6 +61,13 @@ Essa separação facilita a **escalabilidade, manutenção e evolução** do sis
 > A combinação de **React Native** para o cliente, **PostgreSQL + Prisma** para persistência de dados e **Figma** como ferramenta de design oferece uma base sólida para o desenvolvimento e evolução do sistema.
 
 ### 2.1.2  Justificativa de escolha
-> Justificar tecnicamente a arquitetura escolhida, relacionando-a com os requisitos funcionais e não funcionais do sistema.
+
+# Motivo da escolha 
+A arquitetura cliente-servidor foi escolhida por atender de forma eficiente aos requisitos funcionais e não funcionais definidos para o sistema. Esse modelo garante uma separação clara entre as responsabilidades de interface (frontend) e processamento de dados (backend). Esse modelo de organização separa claramente a  responsabilidade da apresentação com o processamento, o que permite que uma interface foque na total experiência do usuário e a outra concentre toda a lógica, persistência e autênticações. 
+
+A escolha por esta arquitetura foi motivada pela necessidade de entregar um produto multiplataforma com rapidez, manter o controle centralizado das regras de negócio e reduzir a complexidade operacional na fase inicial do projeto. **O uso de PostgreSQL combinado com Prisma oferece persistência relacional robusta, migrações tipadas e segurança nas operações de banco de dados.**
+
+Em resumo, a arquitetura cliente‑servidor equilibra rapidez de desenvolvimento, segurança e capacidade de evolução do Aton, oferecendo uma base pragmática e escalável para suportar as funcionalidades de gerenciamento de eventos, feed social e autenticação de usuários demandadas pelo sistema.
+
 
 entrega: `Texto analítico com referências`
