@@ -29,7 +29,7 @@ A decomposição foi feita em cinco grandes épicos, que representam blocos cent
 | **Funcionalidade**   | **História de Usuário**  | **Critérios de Aceitação**   |
 | ------------------------- | ------------------------- | ----------------------------------------- |
 |Criação de issues/épicos no zenhub para organização do time e divisão das sprints| -- | -- |
-|Criação da estrutura MVC no monorepo|--|--|
+|Criação da estrutura Cliente - Servidor no monorepo|--|--|
 |Criação de estrutura base da API e do Expo|--|--|
 |Criação/modelagem de banco de dados relacional (talvez noSQL)|--|--| 
 |Criação do protótipo de alta fidelidade das telas dos primeiros requisitos|--|--|
