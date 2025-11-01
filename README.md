@@ -21,7 +21,7 @@ inicie o servidor de desenvolvimento
 mkdocs serve
 ```
 acesse o endereço http://localhost:8000
->>>>>>> docs
+> docs
 
 ## Especificações Técnicas do Repositório
 
