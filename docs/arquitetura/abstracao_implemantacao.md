@@ -2,10 +2,56 @@
 
 ### 2.4.1 Visão Lógica
 
-- Parte 1 Módulos e pacotes:
-  > Listar módulos do sistema e criar o diagrama de pacotes UML mostrando a organização da aplicação (camadas, comunicação).
+Seguindo a estrutura de Cliente-Servidor em construção de software MonoRepo, temos a seguinte visão lógida do software:
 
-entrega: `Diagrama + explicação`
+> Estrutura Macro
+
+O projeto é estuturado em monorepo, com gerenciamento feito pelo `PNPM` e possui otimização pelo Turborepo, com diferenciação entra FrontEnd e BackEnd.
+
+A raíz do projeto possui o arquivo pnpm-workspace.yaml, que define:
+
+- `apps/*` contendo as aplicações executáveis do aplicativo móvel e API
+- `packages/*` contendo as configurações compartilhadas como Linters, Configs de testes e outros, usados pela aplicação em apps.
+
+> Módulos Principais
+
+A pasta `apps/` possui os componentes principais do sistema:
+
+### a) O módulo `apps/api`
+
+É o módulo de API do backend do Projeto, constituído em Node.js com TypeScript
+
+- O Framework utiliza **Express.JS** e **ExpoRouter** para roteamento e gerenciamento de requisições.
+- O **Banco de dados** utiliza o **Prisma** `(Prisma/schema.prisma)` para se comunicar com o banco de dados **Postgres.SQL**, rodando a partir de um container do **DOCKER**.
+- A **estrutura de módulos**: A API é organizada por _features_ como visto em `src/modules/user` e `src/modules/auth` e cada módulo contém: `routes.ts` para definir endpoints da API, `controllers.ts` para orquestrar a lógica de requisição, `services.ts` contendo a lógica de negócios. `repository.ts` que abstrai o acesso direto ao banco de dados do **Prisma**.
+- Os **testes de API** são configurados com o **JEST** e estáo na pasta `src/__tests__`, com foco em testes de integração e testes unitários.
+
+### b) Módulos FrontEnd `apps/mobile`
+
+É o aplicativo móvel principal, desenvolvido com **REACT NATIVE** e **EXPO**.
+
+- **Roteamento**: É feito através do **ExpoRouter**, com uma abordagem _file based routing_ em que a estrutura de diretórios define a rota de navegaçõa do app.
+- `(Auth)`: Define a tela de autenticação como: `login.tsc` e `cadastro.tsx`.
+- `(Dashboard)`: Define a área logada do aplicativo, e possui páginas como (`Home.tsx` e `Teams.tsx`).
+- **Componentização**: O sistema está organizado com uma pasta dedicada a **componentes reutilizáveis** em (`components/`).
+- **Estilização e temas**: São definidos por designs (`constants/Colors.ts` e `constants/Fonts.ts` e `constants/Theme.ts`).
+- Os **Testes**: são encontrados na pasta (`__tests__/`) e utilizam o **JEST** (com o React Native Testing Library) para testar componentes e páginas (`components/` e `paginas/`)
+
+### C) Módulos Compartilhados (packages)
+
+O diretório packages é fundamental para a estratégia do monorepo, garantindo que todas as apps sigam os mesmos padrões de qualidade de código:
+
+- `packages/eslint-config`: Configuração base do ESLint, compartilhada entre api e mobile.
+
+- `packages/jest-config`: Presets de configuração do Jest.
+
+- `packages/prettier-config`: Regras de formatação de código (Prettier).
+
+- `packages/typescript-config`: Arquivos tsconfig.json base, garantindo consistência nas configurações do TypeScript.
+
+  > Diagrama UML:
+
+![alt text](../assets/imgs/logica.jpg)
 
 - Parte 2 Classes e persistência:
   > Criar e explicar o diagrama de classes em alto nível, mostrando persistência e lógica de negócio. Explicar interações entre camadas.
@@ -17,6 +63,7 @@ entrega: `Diagrama + texto`
 O Modelo Entidade-Relacionamento (MER) do sistema foi desenvolvido para representar de forma clara e estruturada as entidades principais, seus atributos e os relacionamentos entre elas. Este modelo serve como base para a criação do esquema do banco de dados relacional, garantindo que os dados sejam armazenados de maneira eficiente e consistente.
 
 ![MER](../assets/imgs/MER.png){ width="700" }
+
 <p align="center"><em>Figura 2.4.1 - Modelo Entidade-Relacionamento (MER) do Sistema</em></p>
 <p align="center"><em>Fonte: <a href="https://github.com/CODEbugging3000">Gabriel Alves</a></em></p>
 
@@ -33,6 +80,7 @@ O MER inclui as seguintes entidades principais:
 Os relacionamentos entre as entidades são definidos para refletir as interações e dependências do sistema, como a associação entre usuários e grupos, publicações e comentários, e partidas e times. Foram identificados os tipos de relacionamentos (1:1, 1:N, N:M) e as cardinalidades para garantir a integridade dos dados.
 
 Os relacionamentos principais incluem:
+
 - Um **User** pode pertencer a muitos **Groups** (N:M), e um **Group** pode ter muitos **Users**.
 - Um **User** pode seguir **(Follow)** muitos **Groups** (N:M), e um **Group** pode ser seguido por muitos **Users**.
 - Um **User** pode criar muitas **Posts** (1:N), e cada **Post** é criado por um único **User** desde que seja um admin de um **Group**.
