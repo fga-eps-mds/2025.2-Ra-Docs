@@ -20,7 +20,32 @@ O Modelo Entidade-Relacionamento (MER) do sistema foi desenvolvido para represen
 <p align="center"><em>Figura 2.4.1 - Modelo Entidade-Relacionamento (MER) do Sistema</em></p>
 <p align="center"><em>Fonte: <a href="https://github.com/CODEbugging3000">Gabriel Alves</a></em></p>
 
+O MER inclui as seguintes entidades principais:
 
+- **User (Usuário):** Representa os usuários do sistema, com atributos principais como ID, nome, userName, email e senha, ProfileType (tipo de perfil).
+- **Group (Grupo):** Representa grupos de usuários, com atributos como ID, nome, bio, groupType (tipo de grupo que pode ser ATLÉTICA ou AMADOR).
+- **Post (Publicação):** Representa as publicações feitas pelos usuários admins de grupos, contendo atributos como ID, title, content (conteúdo), date_of_post (data e hora da publicação), postType (tipo de publicação que pode ser EVENTO ou GERAL), location e event_date opcionais para eventos.
+- **Comment (Comentário):** Representa os comentários feitos pelos usuários nas publicações, com atributos como ID, content (conteúdo) e createdAt (data e hora do comentário).
+- **Match (Partida):** Representa partidas esportivas organizadas por grupos, com atributos como ID, home_team (time da casa), away_team (time visitante), match_date (data e hora da partida), location (local) e score_home e score_away para o placar.
+- **Teams (Times):** Entidade fraca que representa os times associados as partidas, com apenas um atributo userId.
+- **Report (Denúncia):** Representa denúncias feitas por usuários contra publicações ou comentários, com atributos como ID, reason (motivo) e createdAt (data e hora da denúncia).
+
+Os relacionamentos entre as entidades são definidos para refletir as interações e dependências do sistema, como a associação entre usuários e grupos, publicações e comentários, e partidas e times. Foram identificados os tipos de relacionamentos (1:1, 1:N, N:M) e as cardinalidades para garantir a integridade dos dados.
+
+Os relacionamentos principais incluem:
+- Um **User** pode pertencer a muitos **Groups** (N:M), e um **Group** pode ter muitos **Users**.
+- Um **User** pode seguir **(Follow)** muitos **Groups** (N:M), e um **Group** pode ser seguido por muitos **Users**.
+- Um **User** pode criar muitas **Posts** (1:N), e cada **Post** é criado por um único **User** desde que seja um admin de um **Group**.
+- Um **Post** pode ter muitos **Comments** (1:N), e cada **Comment** é associado a um único **Post**.
+- Um **User** pode curtir **(postLike)** muitas **Posts** (N:M), e um **Post** pode ser curtido por muitos **Users**.
+- Um **User** pode fazer vários **Comments** (1:N), e cada **Comment** é feito por um único **User**.
+- Um **User** pode marcar presença **(attendance)** em muitos **Events** (N:M), e um **Event** pode ter muitos **Users** presentes.
+- Um **User** pode denunciar **(Report)** muitas **Posts** e **Comments** (1:N), e cada **Report** é feito por um único **User**.
+- Um **User** pode criar **(publish)** muitas **Matches** (1:N), e cada **Match** é criada por um único **User**.
+- Um **User** pode se inscrever em muitas **Matches** (N:M), e uma **Match** pode ter muitos **Users** inscritos.
+- Uma **Match** tem dois **Teams** (1:2), e cada **Team** está associada a uma única **Match**.
+
+Os atributos de cada entidade foram cuidadosamente definidos para capturar todas as informações necessárias para o funcionamento do sistema, garantindo que o modelo atenda aos requisitos funcionais e não funcionais estabelecidos, sabendo que podem sofrer alterações futuras de acordo com a evolução do projeto.
 
 ## 2.5 Visão de Implantação
 
