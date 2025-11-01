@@ -81,7 +81,7 @@ Em resumo, o diagrama mostra uma arquitetura em camadas bem definidas:
 
 Essas camadas interagem de forma sequencial: Controller → Service → Repository → Banco de Dados, com middlewares e validações atuando de forma transversal. Essa estrutura favorece organização, testabilidade e manutenção do sistema.
 
-<img src="../assets/imgs/diagrama-de-classes-user.svg" alt="Diagrama de classes - User" width="500" />
+<img src="../assets/imgs/diagrama-de-classes-user.png" alt="Diagrama de classes - User" width="500" />
 <p align="center"><em>Figura 2.4.2 - Diagrama de classes - User</em></p>
 <p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
 
@@ -93,7 +93,7 @@ Essas camadas interagem de forma sequencial: Controller → Service → Reposito
 
 - User (modelo de domínio): representa os dados do usuário: id, name, userName, email, createdAt, updatedAt. Pode incluir campos adicionais como profileType.
 
-<img src="../assets/imgs/diagrama-de-classes-Group.svg" alt="Diagrama de classes - Group" width="500" />
+<img src="../assets/imgs/diagrama-de-classes-Group.png" alt="Diagrama de classes - Group" width="500" />
 <p align="center"><em>Figura 2.4.3 - Diagrama de classes - Group</em></p>
 <p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
 
@@ -103,7 +103,7 @@ Essas camadas interagem de forma sequencial: Controller → Service → Reposito
 
 - GroupRepository: camada de persistência, encapsula consultas e comandos ao Prisma (prisma.group.*) e retorna objetos Group (tipados conforme o MER do projeto).
 
-<img src="../assets/imgs/diagrama-de-classes-Post.svg" alt="Diagrama de classes - Post" width="500" />
+<img src="../assets/imgs/diagrama-de-classes-Post.png" alt="Diagrama de classes - Post" width="500" />
 <p align="center"><em>Figura 2.4.4 - Diagrama de classes - Post</em></p>
 <p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
 
@@ -121,7 +121,7 @@ Essas camadas interagem de forma sequencial: Controller → Service → Reposito
 
 - PostRepository: abstrai o acesso ao banco, traduz chamadas da camada de serviço em operações do ORM (`prisma.post.create/findUnique/findMany/update/delete`) e faz joins/queries relacionadas (ex.: buscar comments, contar likes, listar posts de um group). Aqui também fica a lógica de persistência de relacionamentos N:M (postLikes) e operações que afetam múltiplas tabelas (recomendável usar transações do Prisma nesses casos).
 
-<img src="../assets/imgs/diagrama-de-classes-Comment.svg" alt="Diagrama de classes - Comment" width="500" />
+<img src="../assets/imgs/diagrama-de-classes-Comment.png" alt="Diagrama de classes - Comment" width="500" />
 <p align="center"><em>Figura 2.4.5 - Diagrama de classes - Comment</em></p>
 <p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
 
@@ -131,7 +131,7 @@ Essas camadas interagem de forma sequencial: Controller → Service → Reposito
 
 - CommentRepository: encapsula a persistência com Prisma, mapeia DTOs para `prisma.comment.create/findUnique/findMany/update/delete`. Também resolve associações (trazer autor, ou contar comentários do post) e é o local apropriado para usar transações quando operações afetam múltiplas tabelas (ex.: criar comentário + atualizar contador de comentários no post). O modelo entidade-relacionamento define a relação 1:N entre Post e Comment e 1:N entre User e Comment, que o repositório materializa nas queries.
 
-<img src="../assets/imgs/diagrama-de-classes-Match.svg" alt="Diagrama de classes - Match" width="500" />
+<img src="../assets/imgs/diagrama-de-classes-Match.png" alt="Diagrama de classes - Match" width="500" />
 <p align="center"><em>Figura 2.4.6 - Diagrama de classes - Match</em></p>
 <p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
 
@@ -151,7 +151,7 @@ Essas camadas interagem de forma sequencial: Controller → Service → Reposito
 
 - Domain Model: Match guarda metadados da partida (times referenciais, data, local, placar, criador). Team é uma entidade fraca ligada a Match que relaciona userId a um time (home/away) e modela a composição 1:2 descrita no MER. Usuários podem se inscrever em Matches (N:M), essa inscrição é representada por uma tabela de ligação (e gerenciada pelo repositório).
 
-<img src="../assets/imgs/diagrama-de-classes-Teams.svg" alt="Diagrama de classes - Teams" width="500" />
+<img src="../assets/imgs/diagrama-de-classes-Teams.png" alt="Diagrama de classes - Teams" width="500" />
 <p align="center"><em>Figura 2.4.7 - Diagrama de classes - Teams</em></p>
 <p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
 
@@ -165,7 +165,7 @@ A entidade Team é uma entidade fraca ligada a uma Match (cada Match tem dois Te
 
 - Modelo de dados: Team armazena metadados (role, referência a matchId) enquanto a associação team_members materializa os membros (teamId, userId). Essa separação facilita consultas (listar membros, checar inscrições) e mantém normalização.
 
-<img src="../assets/imgs/diagrama-de-classes-Report.svg" alt="Diagrama de classes - Report" width="500" />
+<img src="../assets/imgs/diagrama-de-classes-Report.png" alt="Diagrama de classes - Report" width="500" />
 <p align="center"><em>Figura 2.4.8 - Diagrama de classes - Report</em></p>
 <p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
 
