@@ -69,5 +69,3 @@ A escolha por esta arquitetura foi motivada pela necessidade de entregar um prod
 
 Em resumo, a arquitetura cliente‑servidor equilibra rapidez de desenvolvimento, segurança e capacidade de evolução do Aton, oferecendo uma base pragmática e escalável para suportar as funcionalidades de gerenciamento de eventos, feed social e autenticação de usuários demandadas pelo sistema.
 
-
-entrega: `Texto analítico com referências`
