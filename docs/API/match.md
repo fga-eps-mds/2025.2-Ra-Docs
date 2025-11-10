@@ -9,68 +9,78 @@ Este módulo gerencia a visualização e interação com as partidas da platafor
 
 -----
 
-### 1\. Listar Todas as Partidas (Feed)
+### 1\. Listar Partidas (Feed Paginado)
 
-Retorna uma lista *otimizada* de todas as partidas para o feed. Esta rota é projetada para ser rápida e **não** inclui os detalhes de cada time ou a lista de jogadores.
+Retorna uma lista paginada de todas as partidas disponíveis. Esta rota é otimizada para o feed (scroll infinito) e **não** inclui a lista detalhada de jogadores, apenas a contagem total de vagas.
 
 `GET /match`
 
   * **Autenticação:** Nenhuma (Rota Pública).
 
+#### Parâmetros
+
+| Parâmetro | Tipo | Padrão | Descrição |
+| :--- | :--- | :--- | :--- |
+| `limit` | number | 10 | Quantidade de itens por página (Máx: 50). |
+| `page` | number | 1 | O número da página a ser buscada. |
+
 #### Success Response (`200 OK`)
 
-Retorna um *array* de partidas. O objeto `spots` mostra a contagem total, e o booleano `isSubscriptionOpen` informa ao frontend se ainda há vagas (em *qualquer* um dos times).
+Retorna um objeto de paginação (`data` e `meta`). O `MatchStatus` é **calculado dinamicamente**: se a `MatchDate` já passou e o status no banco ainda for `EM_BREVE`, a API retornará `EM_ANDAMENTO`.
 
 **Exemplo de Resposta:**
 
 ```json
-[
-  {
-    "id": "uuid-partida-1",
-    "title": "Futsal da Computação vs. Elétrica",
-    "date": "2025-11-10T19:00:00.000Z",
-    "location": "Quadra Padrão UnB",
-    "maxPlayers": 20,
-    "teamNameA": "Camisas",
-    "teamNameB": "Peles",
-    "createdAt": "...",
-    "updatedAt": "...",
-    "isSubscriptionOpen": true,
-    "spots": {
-      "filled": 5,
-      "open": 15
+{
+  "data": [
+    {
+      "id": "uuid-partida-1",
+      "title": "Futsal da Eng.",
+      "description": "Amistoso das engenharias",
+      "authorId": "uuid-do-autor",
+      "MatchDate": "2025-11-10T17:30:00.000Z",
+      "MatchStatus": "EM_ANDAMENTO",
+      "location": "Quadra Padrão UnB",
+      "maxPlayers": 20,
+      "teamNameA": "Time Legal",
+      "teamNameB": "Time Ruim",
+      "createdAt": "2025-11-09T10:00:00.000Z",
+      "updatedAt": "2025-11-09T10:00:00.000Z",
+      "isSubscriptionOpen": true,
+      "spots": {
+        "filled": 5,
+        "open": 15
+      }
     }
-  },
-  {
-    "id": "uuid-partida-2",
-    "title": "Vôlei de Teste",
-    "date": "2025-11-11T20:00:00.000Z",
-    "location": "Ginásio 2",
-    "maxPlayers": 12,
-    "teamNameA": "Time A",
-    "teamNameB": "Time B",
-    "createdAt": "...",
-    "updatedAt": "...",
-    "isSubscriptionOpen": false,
-    "spots": {
-      "filled": 12,
-      "open": 0
-    }
+    // ... (mais partidas)
+  ],
+  "meta": {
+    "page": 1,
+    "limit": 10,
+    "totalCount": 12,
+    "totalPages": 2,
+    "hasNextPage": true,
+    "hasPrevPage": false
   }
-]
+}
 ```
+
+**Error Responses:**
+| Código | Status | Motivo |
+| :--- | :--- | :--- |
+| `400` | Bad Request | Erro de validação do Zod (ex: `limit` maior que 50). |
 
 -----
 
 ### 2\. Buscar Partida Específica (Detalhe)
 
-Retorna os detalhes completos de *uma* única partida, incluindo os nomes customizados dos times e a lista de jogadores inscritos em cada um.
+Retorna os detalhes completos de *uma* única partida, incluindo os nomes customizados dos times (`teamA`, `teamB`) e a lista de todos os jogadores inscritos em cada time.
 
 `GET /match/:id`
 
   * **Autenticação:** Nenhuma (Rota Pública).
 
-#### URL Parameters
+#### Parâmetro
 
 | Parâmetro | Tipo | Obrigatório | Descrição |
 | :--- | :--- | :--- | :--- |
@@ -78,29 +88,31 @@ Retorna os detalhes completos de *uma* única partida, incluindo os nomes custom
 
 #### Success Response (`200 OK`)
 
-Retorna um *objeto* único da partida, contendo a estrutura `teamA` e `teamB` com suas respectivas vagas e listas de jogadores.
+Retorna um *objeto* único da partida. O `MatchStatus` é calculado dinamicamente.
 
 **Exemplo de Resposta:**
 
 ```json
 {
   "id": "uuid-partida-1",
-  "title": "Futsal da Computação vs. Elétrica",
-  "description": "Amistoso de abertura",
-  "date": "2025-11-10T19:00:00.000Z",
-  "location": "Quadra Padrão UnB",
+  "title": "Futsal",
+  "description": "Descrição",
+  "authorId": "uuid-do-autor",
+  "MatchDate": "2025-11-10T17:30:00.000Z",
+  "MatchStatus": "EM_ANDAMENTO",
+  "location": "Quadra",
   "maxPlayers": 20,
-  "teamNameA": "Camisas",
-  "teamNameB": "Peles",
-  "createdAt": "...",
-  "updatedAt": "...",
+  "teamNameA": "Time A",
+  "teamNameB": "Time B",
+  "createdAt": "2025-11-09T10:00:00.000Z",
+  "updatedAt": "2025-11-09T10:00:00.000Z",
   "isSubscriptionOpen": true,
   "spots": {
     "totalMax": 20,
     "totalFilled": 1
   },
   "teamA": {
-    "name": "Camisas",
+    "name": "Time A",
     "max": 10,
     "filled": 1,
     "isOpen": true,
@@ -113,7 +125,7 @@ Retorna um *objeto* único da partida, contendo a estrutura `teamA` e `teamB` co
     ]
   },
   "teamB": {
-    "name": "Peles",
+    "name": "Time B",
     "max": 10,
     "filled": 0,
     "isOpen": true,
@@ -121,6 +133,15 @@ Retorna um *objeto* único da partida, contendo a estrutura `teamA` e `teamB` co
   }
 }
 ```
+
+#### Error Responses
+
+| Código | Status | Motivo | Exemplo de Resposta (JSON) |
+| :--- | :--- | :--- | :--- |
+| `400` | Bad Request | O `:id` fornecido na URL não é um UUID válido. | `{"error": "Erro de validação", "issues": ...}` |
+| `404` | Not Found | Nenhuma partida foi encontrada com esse ID. | `{"error": "Partida não encontrada"}` |
+
+
 
 #### Error Responses
 
