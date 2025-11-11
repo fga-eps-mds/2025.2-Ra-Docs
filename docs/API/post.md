@@ -11,12 +11,185 @@ Esta coleção contém endpoints para gerenciar posts em um sistema de Feed de e
 
 ## Endpoints disponíveis
 
+- **List_posts:** Retorna uma lista paginada de posts.
+- **Get_post_by_id:** Retorna um post específico pelo seu ID.
 - **Create_post:** Cria um novo post.
 - **Update_post:** Atualiza as informações de um post já criado.
 - **Delete_post:** Deleta um post.
 - **Delete_comment:** Deleta um comentario dentro de um post criado pelo usuario.
 
 Consulte a documentação detalhada em cada endpoint para informações de parâmetros, respostas e exemplos de uso.
+
+## GET List_posts (Feed)
+
+```
+http://localhost:4000/post/
+```
+
+**Descrição:**
+Retorna uma lista paginada de posts, ordenados do mais recente para o mais antigo.
+
+**Parâmetros opcionais:**
+
+- limit (number): Número máximo de posts por página.
+  - Padrão: 10
+  - Máximo permitido: 50
+
+- page (number): O número da página a ser retornada.
+  - Padrão: 1
+
+**Parâmetros de resposta (Data):**
+
+- Retorna uma lista de objetos Post (semelhante ao retorno de Get_post_by_id, mas sem inclusão de comments, likes, etc., no post.repository.ts anexo, retorna apenas os campos básicos do Post).
+
+**Parâmetros de Resposta (Meta - Paginação):**
+
+- page (number): O número da página atual.
+- limit (number): O limite de itens por página.
+- totalCount (number): O número total de posts no sistema.
+- totalPages (number): O número total de páginas disponíveis.
+- hasNextPage (boolean): Indica se há uma próxima página.
+- hasPrevPage (boolean): Indica se há uma página anterior.
+
+**Respostas esperadas:**
+
+- 200 OK: Retorna um objeto contendo a lista de posts em data e os metadados de paginação em meta.
+- 400 Bad Request: limit maior que 50 ou parâmetros de query inválidos.
+- 401 Unauthorized: Token JWT ausente ou inválido.
+
+**Exemplo de uso:**
+
+```bash
+GET http://localhost:4000/post/?limit=20&page=2
+```
+**Guia de uso:**
+- Use este endpoint para buscar o feed de posts. Você pode controlar a quantidade de posts e a página usando os parâmetros limit e page.
+
+### Exemplo:
+
+#### Request:
+
+```
+curl --location 'http://localhost:4000/post/?limit=5&page=1' \
+--header 'Authorization: Bearer user:5b308629-cf63-433e-8334-666697f8cdd6'
+```
+
+#### Response:
+
+```
+{
+    "data": [
+        {
+            "id": "5b308629-cf63-433e-8334-666697f8cdd6",
+            "title": "Post Mais Recente",
+            "content": "Conteúdo do post mais recente.",
+            "type": "GENERAL",
+            "author": "gabro",
+            "authorId": "id-gabro",
+            "group": "pesadelo",
+            "groupId": "id-pesadelo",
+            "createdAt": "2025-10-25T14:10:29.170Z",
+            "updatedAt": "2025-10-25T14:10:29.170Z",
+            "eventDate": null,
+            "eventFinishDate": null,
+            "location": null,
+            "likesCount": 5,
+            "commentsCount": 2,
+            "attendancesCount": 0
+        },
+        // ... mais 4 posts ...
+    ],
+    "meta": {
+        "page": 1,
+        "limit": 5,
+        "totalCount": 42,
+        "totalPages": 9,
+        "hasNextPage": true,
+        "hasPrevPage": false
+    }
+}
+```
+
+## GET Get_post_by_id
+
+```
+http://localhost:4000/post/:id/
+```
+**Descrição:**
+- Retorna os detalhes de um post específico, incluindo informações selecionadas de comentários associados.
+
+**Parâmetros obrigatórios(Path):**
+
+- id (string, path): Identificador único da postagem.
+- Parâmetros de Resposta (Inclusões):
+- comments (Comment[]): Lista dos comentários da postagem, ordenados por data de criação (createdAt: "desc").
+- Cada comentário inclui: id, content, createdAt e o author (com id e userName).
+
+**Respostas esperadas:**
+
+- 200 OK: Retorna o objeto Post completo com as inclusões.
+- 400 Bad Request: ID inválido (não é um UUID).
+- 404 Not Found: Postagem não encontrada com o ID fornecido.
+- 401 Unauthorized: Token JWT ausente ou inválido.
+
+**Exemplo de uso:**
+
+```
+Bash
+
+GET http://localhost:4000/post/5b308629-cf63-433e-8334-666697f8cdd6
+Headers: Authorization: Bearer <token>
+Guia de uso: Utilize este endpoint para obter todas as informações de uma única postagem.
+```
+
+### Exemplo:
+
+#### Request
+
+```
+curl --location 'http://localhost:4000/post/5b308629-cf63-433e-8334-666697f8cdd6' \
+--header 'Authorization: Bearer user:5b308629-cf63-433e-8334-666697f8cdd6'
+```
+
+#### Response
+
+```
+(JSON)
+
+{
+    "id": "5b308629-cf63-433e-8334-666697f8cdd6",
+    "title": "Pesadelo X Cruzeiro",
+    "content": "Detalhes sobre o evento do jogo.",
+    "type": "EVENT",
+    "author": "gabro",
+    "authorId": "id-gabro",
+    "group": "pesadelo",
+    "groupId": "id-pesadelo",
+    "createdAt": "2025-10-25T14:10:29.170Z",
+    "updatedAt": "2025-10-25T14:10:29.170Z",
+    "eventDate": "2025-10-25T10:00:00.170Z",
+    "eventFinishDate": "2025-10-25T14:00:00.170Z",
+    "location": "Estádio Principal",
+    "likesCount": 5,
+    "commentsCount": 2,
+    "attendancesCount": 10,
+    "comments": [
+        {
+            "id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+            "content": "Que notícia incrível!",
+            "createdAt": "2025-10-25T14:30:00.000Z",
+            "author": {
+                "id": "user-comment-id",
+                "userName": "Comentador1"
+            }
+        },
+        // ... outros comentários ...
+    ],
+    "likes": {},
+    "reports": {},
+    "attendances": {}
+}
+```
 
 ## POST Create_Post
 
