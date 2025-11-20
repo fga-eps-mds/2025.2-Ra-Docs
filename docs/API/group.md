@@ -1,8 +1,6 @@
 # Endpoints de Grupo API
 Esta seção documenta os endpoints relacionados à funcionalidade de grupos na API do Aton.
 
-Aqui está a documentação dos endpoints de **Follow** (Seguir Grupos), formatada conforme solicitado (sem tabelas).
-
 -----
 # Endpoints de Follow (Group Follow)
 
