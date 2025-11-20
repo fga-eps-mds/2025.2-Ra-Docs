@@ -102,7 +102,7 @@ GET http://localhost:4000/match/:id
 ```
 
 **Descrição:**  
-Retorna os detalhes de uma partida (inclui inscrições/players).
+Retorna os detalhes completos, incluindo os times divididos (A e B) e os jogadores inscritos.
 
 **Parâmetros obrigatórios:**
 
@@ -125,20 +125,55 @@ Headers:
 Response (200):
 ```json
 {
-  "id": "d4e5f6g7-....",
-  "title": "Pelada de Domingo",
-  "description": "Partida amistosa - todos são bem-vindos",
-  "author": "{ "id": "a8f1b2c3-....", "name": ..., ...}",
+  "id": "uuid-partida-1",
+  "title": "Futsal da Computação",
+  "description": "Descrição",
+  "author": { 
+              "id": "a8f1b2c3-....", 
+              "name": "João", 
+              "username": "joao",
+              "...": "..."
+            },
   "authorId": "a8f1b2c3-....",
-  "maxPlayers": 10,
-  "players": [],
-  "MatchDate": "2025-11-15T10:00:00.000Z",
+  "MatchDate": "2025-11-10T17:30:00.000Z",
   "MatchStatus": "EM_BREVE",
-  "location": "Campo Central",
-  "teamNameA": "TIME_A",
-  "teamNameB": "TIME_B",
-  "createdAt": "2025-10-25T14:10:29.170Z",
-  "updatedAt": "2025-10-25T14:10:29.170Z"
+  "location": "Quadra",
+  "maxPlayers": 20,
+  "teamNameA": "Veteranos",
+  "teamNameB": "Calouros",
+  "createdAt": "2025-11-09T10:00:00.000Z",
+  "updatedAt": "2025-11-09T10:00:00.000Z",
+  "isSubscriptionOpen": true,
+  "spots": {
+    "totalMax": 14,
+    "totalFilled": 2
+  },
+  "teamA": {
+    "name": "Veteranos",
+    "max": 7,
+    "filled": 1,
+    "isOpen": true,
+    "players": [
+      { 
+        "id": "user-uuid-1", 
+        "name": "Autor", 
+        "userName": "autor_user" 
+      }
+    ]
+  },
+  "teamB": {
+    "name": "Calouros",
+    "max": 7,
+    "filled": 1,
+    "isOpen": true,
+    "players": [
+      { 
+        "id": "user-uuid-2", 
+        "name": "Jogador", 
+        "userName": "player_two" 
+      }
+    ]
+  }
 }
 ```
 
@@ -161,13 +196,50 @@ Lista partidas paginadas.
 **Respostas esperadas:**
 
 - `200 OK`: objeto com lista de partidas, page metadata (total/pages) (implementação específica do repositório).
-- `400 Bad Request`: parâmetros inválidos.
+- `400 Bad Request`: Erro de validação do Zod (ex: `limit` maior que 50).
 
 **Exemplo de uso:**
 ```bash
-GET http://localhost:4000/match/?limit=5&page=2
+GET http://localhost:4000/match/?limit=10&page=1
 Headers:
   Authorization: Bearer <token>
+```
+
+Response (200):
+```json
+{
+  "data": [
+    {
+      "id": "uuid-partida-1",
+      "title": "Futsal da Eng.",
+      "description": "Amistoso das engenharias",
+      "author": { "..." },
+      "authorId": "uuid-do-autor",
+      "MatchDate": "2025-11-10T17:30:00.000Z",
+      "MatchStatus": "EM_ANDAMENTO",
+      "location": "Quadra Padrão UnB",
+      "maxPlayers": 20,
+      "teamNameA": "Time Legal",
+      "teamNameB": "Time Ruim",
+      "createdAt": "2025-11-09T10:00:00.000Z",
+      "updatedAt": "2025-11-09T10:00:00.000Z",
+      "isSubscriptionOpen": true,
+      "spots": {
+        "filled": 5,
+        "open": 15
+      }
+    }
+    // ... (mais partidas)
+  ],
+  "meta": {
+    "page": 1,
+    "limit": 10,
+    "totalCount": 12,
+    "totalPages": 2,
+    "hasNextPage": true,
+    "hasPrevPage": false
+  }
+}
 ```
 
 ---
@@ -267,34 +339,26 @@ POST http://localhost:4000/match/:id/subscribe
 ```
 
 **Descrição:**  
-Inscreve o usuário autenticado em uma partida. O serviço cria um `PlayerSubscription` ligado ao `matchId` e `userId` e com `team` (A ou B).
+Inscreve o usuário logado na partida. Lógica: O sistema usa Round Robin. O usuário será alocado automaticamente no time com menos jogadores. Se empatado, vai para o Time A.
 
 **Headers:** `Authorization: Bearer <token>`
 
 **Path params:**
 - `id` (UUID) — id da partida.
 
-**Body (opcional dependendo da implementação):**
-- `team` (string enum: `A` ou `B`) — lado do time desejado (caso suportado).
-
 **Respostas esperadas:**
-- `201 Created`: inscrição feita.
-- `400 Bad Request`:  dados inválidos
-- `401 Unauthorized`: token ausente/inválido.
-- `403 Forbidden`: limite de players atingido.
-- `404 Not Found`: partida não encontrada.
-- `409 Conflict`: se já existe inscrição duplicada.
+- `201 Created`: Inscrição realizada.
+- `400 Bad Request`:  Dados inválidos.
+- `401 Unauthorized`: Token ausente/inválido.
+- `403 Forbidden`: Limite de players atingido ou partida já inicializada.
+- `404 Not Found`: Partida não encontrada.
+- `409 Conflict`: Usuário já está inscrito.
 
 **Exemplo:**
 ```bash
 POST http://localhost:4000/match/d4e5f6g7-.... /subscribe
 Headers:
   Authorization: Bearer <token>
-
-Body:
-{
-  "team": "A"
-}
 ```
 
 ---
@@ -306,7 +370,7 @@ DELETE http://localhost:4000/match/:id/unsubscribe
 ```
 
 **Descrição:**  
-Remove a inscrição (PlayerSubscription) do usuário autenticado nessa partida.
+Remove a inscrição do usuário da partida.
 
 **Headers:** `Authorization: Bearer <token>`
 
@@ -314,9 +378,9 @@ Remove a inscrição (PlayerSubscription) do usuário autenticado nessa partida.
 - `id` (UUID) — match id.
 
 **Respostas esperadas:**
-- `200 Ok`: inscrição removida com sucesso.
-- `404 Not Found`: inscrição ou partida não encontrada.
-- `401 Unauthorized`: token ausente/inválido.
+- `200 Ok`: Inscrição removida com sucesso.
+- `404 Not Found`: Inscrição ou partida não encontrada.
+- `401 Unauthorized`: Token ausente/inválido.
 
 **Exemplo:**
 ```bash
@@ -343,9 +407,9 @@ Troca o time da inscrição do usuário (A <-> B). Requer autenticação.
 
 **Respostas esperadas:**
 - `200 OK`: troca de time realizada com sucesso.
+- `403 Forbidden`: O time de destino está cheio ou a partida já iniciou.
 - `404 Not Found`: inscrição ou partida não encontrada.
 - `401 Unauthorized`: token inválido.
-- `400 Bad Request`: erro na troca (por regras do jogo).
 
 **Exemplo:**
 ```bash
