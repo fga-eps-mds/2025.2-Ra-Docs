@@ -18,7 +18,7 @@ Os endpoints de escrita (`POST`, `DELETE`) requerem autenticação JWT. O endpoi
 
 Faz com que o usuário autenticado comece a seguir um grupo específico.
 
-```http
+```
 POST follow/groups/:id/follow
 ```
 
@@ -52,7 +52,7 @@ POST follow/groups/:id/follow
 
 Faz com que o usuário autenticado deixe de seguir um grupo.
 
-```http
+```
 DELETE follow/groups/:id/follow
 ```
 
@@ -80,7 +80,7 @@ DELETE follow/groups/:id/follow
 
 Retorna a lista de todos os grupos que um determinado usuário está seguindo, com paginação.
 
-```http
+```
 GET follow/users/:id/following-groups?limit=10&page=1
 ```
 
