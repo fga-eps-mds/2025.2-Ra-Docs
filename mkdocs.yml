@@ -30,6 +30,7 @@ nav:
     - Introdução à API: API/introducao.md
     - Endpoints de Usuário: API/user.md
     - Endpoints de Grupo: API/group.md
+    - Endpoints de Convites: API/invite.md
     - Endpoints de Partidas: API/match.md
     - Endpoint de Posts/eventos: API/post.md
     - Autenticação e Autorização: API/auth.md
