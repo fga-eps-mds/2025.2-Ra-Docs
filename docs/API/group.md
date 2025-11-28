@@ -359,32 +359,32 @@ Os endpoints de escrita (`POST`, `DELETE`) requerem autenticação JWT. O endpoi
 Faz com que o usuário autenticado comece a seguir um grupo específico.
 
 ```
-POST follow/groups/:id/follow
+POST follow/groups/:name/follow
 ```
 
 **Headers:** `Authorization: Bearer <token>`
 
 **Parâmetros de Rota (obrigatório):**
 
-  - `id` (string): O UUID do **grupo** que se deseja seguir.
+  - `name` (string): O nome exato do **grupo** que se deseja seguir.
 
 **Body:**
 
-  - Não enviar corpo.
+  - Não enviar corpo.
 
 **Exemplo de Response (201 Created):**
 
 ```json
 {
-  "message": "Grupo seguido com sucesso"
+  "message": "Grupo seguido com sucesso"
 }
 ```
 
 **Respostas de Erro:**
 
-  - `401 Unauthorized`: Token não fornecido ou inválido.
-  - `404 Not Found`: O grupo com o ID fornecido não existe.
-  - `409 Conflict`: O usuário já segue este grupo (duplicidade).
+  - `401 Unauthorized`: Token não fornecido ou inválido.
+  - `404 Not Found`: O grupo com o nome fornecido não existe.
+  - `409 Conflict`: O usuário já segue este grupo (duplicidade).
 
 -----
 
@@ -393,24 +393,26 @@ POST follow/groups/:id/follow
 Faz com que o usuário autenticado deixe de seguir um grupo.
 
 ```
-DELETE follow/groups/:id/follow
+DELETE follow/groups/:name/follow
 ```
 
 **Headers:** `Authorization: Bearer <token>`
 
 **Parâmetros de Rota (obrigatório):**
 
-  - `id` (string): O UUID do **grupo** que se deseja deixar de seguir.
+  - `name` (string): O nome exato do **grupo** que se deseja deixar de seguir.
 
 **Exemplo de Response (204 No Content):**
 
-  - A resposta não contém corpo (vazia). O status `204` indica sucesso.
+  - A resposta não contém corpo (vazia). O status `204` indica sucesso.
 
 **Respostas de Erro:**
 
-  - `400 Bad Request`: O usuário tentou deixar de seguir um grupo que ele **não** seguia.
-  - `401 Unauthorized`: Token não fornecido ou inválido.
-  - `404 Not Found`: Grupo não encontrado (opcional, dependendo da implementação do middleware/service).
+  - `400 Bad Request`: O usuário tentou deixar de seguir um grupo que ele **não** seguia.
+
+  - `401 Unauthorized`: Token não fornecido ou inválido.
+
+  - `404 Not Found`: Grupo não encontrado.
 
 -----
 
