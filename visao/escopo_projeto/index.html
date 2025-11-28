@@ -1,0 +1,1818 @@
+<!DOCTYPE html><html lang="pt" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação do projeto Aton">
+      
+      
+        <meta name="author" content="Equipe Aton">
+      
+      
+      
+        <link rel="prev" href="../processo_desenv/">
+      
+      
+        <link rel="next" href="../metricas_medicoes/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Escopo do Projeto - Documentação Aton</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/home.css">
+    
+      <link rel="stylesheet" href="../../assets/css/global.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#escopo-de-projeto" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Documentação Aton" class="md-header__button md-logo" aria-label="Documentação Aton" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação Aton
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Escopo do Projeto
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FGA0138-MDS-Ajax/2025.2-Ra" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub/Aton
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação Aton" class="md-nav__button md-logo" aria-label="Documentação Aton" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Documentação Aton
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FGA0138-MDS-Ajax/2025.2-Ra" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub/Aton
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documento de visão
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Documento de visão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visao_geral_prod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral do Produto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visao_geral_proj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral do Projeto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../processo_desenv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Processo de Desenvolvimento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Escopo do Projeto
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Escopo do Projeto
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Sumário">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sumário
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#backlog-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backlog do produto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backlog do produto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#figma-do-backlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Figma do Backlog:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-1-infraestrtura-tecnica-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 1: Infraestrtura Técnica Inicial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-2-autenticacao-e-gerenciamento-de-conta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 2: Autenticação e gerenciamento de conta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-3-feed-de-eventospartidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 3: Feed de Eventos/Partidas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-4-atleticas-times-amadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 4: (Atléticas / Times Amadores )
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-5-sistema-de-notificacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 5: Sistema de Notificações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-6-gerenciamento-do-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 6: Gerenciamento do app
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perfis-personas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perfis &amp; Personas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metricas_medicoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Métricas e Medições
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testes de Software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../organizacao_grupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Organização do Grupo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Referências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Atas de reuniões
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Atas de reuniões
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concepção de produto e ideias
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Definições de papéis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lean inception
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cont. de Lean inception
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sequenciador do MVP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Iniciação do projeto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sprint 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentação da API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Documentação da API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução à API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoints de Usuário
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoints de Grupo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/invite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoints de Convites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/match/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoints de Partidas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/post/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoint de Posts/eventos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação e Autorização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Referências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Arquitetura
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/definicoes_gerais/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Definições Gerais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/detalhamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Detalhamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/arquitetura_produto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura x Produto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/abstracao_implemantacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Abstração e Implementação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Referências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Guia de Contribuição
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Sumário">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sumário
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#backlog-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backlog do produto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backlog do produto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#figma-do-backlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Figma do Backlog:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-1-infraestrtura-tecnica-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 1: Infraestrtura Técnica Inicial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-2-autenticacao-e-gerenciamento-de-conta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 2: Autenticação e gerenciamento de conta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-3-feed-de-eventospartidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 3: Feed de Eventos/Partidas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-4-atleticas-times-amadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 4: (Atléticas / Times Amadores )
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-5-sistema-de-notificacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 5: Sistema de Notificações
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-6-gerenciamento-do-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Épico 6: Gerenciamento do app
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perfis-personas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perfis &amp; Personas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="escopo-de-projeto">Escopo de projeto</h1>
+<h2 id="backlog-do-produto">Backlog do produto</h2>
+<p>O Backlog do Produto (Product Backlog) é uma lista ordenada e emergente de tudo o que é necessário para melhorar o produto.</p>
+<p>Um produto é um veículo para entregar valor. Ele possui um limite claro, partes interessadas conhecidas e usuários ou clientes bem definidos. Um produto pode ser um serviço, um produto físico ou algo mais abstrato.
+Itens do product backlog que podem ser concluídos em uma sprint (O coração do Scrum, onde as ideias são transformadas em valor) são considerados prontos para seleção no evento de planejamento da sprint.
+Eles geralmente adquirem esse grau de transparência após as atividades de refinamento. O ato de decompor e definir com mais detalhes os itens do Product Backlog em itens menores e mais precisos é conhecido como refinamento do product backlog. Essa é uma atividade contínua para adicionar detalhes, como descrição, ordem e tamanho.</p>
+<p>O Product Goal descreve um estado futuro do produto. Ele está no Product Backlog. O restante do Product Backlog emerge para definir "o quê" irá cumprir o Product Goal. Product Goal é o objetivo de longo prazo, ele deve ser cumprido (ou abandonado) antes de assumir um próximo.</p>
+<p>Os Desenvolvedores que realizarão o trabalho são responsáveis pelo dimensionamento (estimativa de tamanho). O Product Owner (Dono do Produto) pode influenciar os Developers ajudando-os a entender e selecionar as compensações</p>
+<p>Um backlog do produto bem estruturado e atualizado permite um alinhamento da equipe às metas do produto; visibilidade ao progresso e às próximas entregas; facilidade de adaptação a mudanças de prioridade e a garantia de que o time esteja sempre focado em entregar valor ao usuário final.</p>
+<h3 id="figma-do-backlog">Figma do Backlog:</h3>
+<div>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/board/wpTBeKNOQ1IVSojku3nA3O/Backlog?node-id=0-1&amp;embed-host=share" allowfullscreen></iframe>
+</div>
+
+<p>O Backlog do Produto é o resultado direto das decisões tomadas durante a Lean Inception do projeto Vai Pela Sombra. Ele organiza de forma hierárquica e visual os épicos, funcionalidades, histórias de usuário e critérios de aceitação que guiarão o desenvolvimento incremental da aplicação. Essa estrutura permite priorizar entregas, facilitar a comunicação entre os membros da equipe e garantir que o valor entregue ao usuário esteja sempre alinhado com os objetivos estratégicos do produto.</p>
+<p>A decomposição foi feita em cinco grandes épicos, que representam blocos centrais de valor: cadastro de usuários, itinerários, promoções, recomendações e avaliação da experiência. Cada épico foi desdobrado em funcionalidades específicas, que por sua vez foram traduzidas em histórias de usuário com critérios claros de aceitação — respeitando os princípios de clareza, valor e testabilidade. A seguir, o backlog está organizado em tabelas em Markdown, separadas por épico, para facilitar a leitura e o acompanhamento.</p>
+<h2 id="epico-1-infraestrtura-tecnica-inicial">Épico 1: Infraestrtura Técnica Inicial</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Funcionalidade</strong></th>
+<th><strong>História de Usuário</strong></th>
+<th><strong>Critérios de Aceitação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Criação de issues/épicos no zenhub para organização do time e divisão das sprints</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Criação da estrutura Cliente - Servidor no monorepo</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Criação de estrutura base da API e do Expo</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Criação/modelagem de banco de dados relacional (talvez noSQL)</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Criação do protótipo de alta fidelidade das telas dos primeiros requisitos</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<h2 id="epico-2-autenticacao-e-gerenciamento-de-conta">Épico 2: Autenticação e gerenciamento de conta</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Funcionalidade</strong></th>
+<th><strong>História de Usuário</strong></th>
+<th><strong>Critérios de Aceitação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Autenticação e Criação de Conta</strong> <br> abrange todo o processo de entrada e registro na plataforma Aton. Ela garante que os usuários possam criar uma conta de maneira simples e segura, escolher seu tipo de interação principal com o aplicativo (jogador, torcedor ou atlética) e acessar a plataforma através de um sistema de login.</td>
+<td><strong>US1 F1 EP2</strong>: <strong>Como</strong> um aluno da UnB interessado em eventos esportivos, eu <strong>quero</strong> poder me cadastrar no aplicativo Aton usando meu e-mail e uma senha, <strong>para que</strong> eu possa ter acesso à plataforma e suas funcionalidades.</td>
+<td>- <strong>CA1</strong>: O campo de e-mail deve validar o formato (ex: usuario@exemplo.com). <br> - <strong>CA2</strong>: O campo de senha deve exigir um mínimo de 8 caracteres.  <br> - <strong>CA3</strong>: Deve haver uma confirmação de senha para evitar erros de digitação.  <br> - <strong>CA4</strong>: O aplicativo deve verificar se o e-mail já está em uso e informar o usuário. <br> - <strong>CA5:</strong> Após o preenchimento correto dos dados, o usuário deve ser direcionado para a próxima etapa (seleção de tipo de perfil). <br> - <strong>CA6:</strong> O sistema deve garantir a segurança da senha (armazenamento criptografado).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>US2 F1 EP2</strong>: <strong>Como um</strong> novo usuário recém-cadastrado, <strong>eu quero</strong> poder escolher meu tipo de perfil principal (Jogador, Torcedor ou Atlética), <strong>para que</strong> o aplicativo personalize minha experiência inicial e as funcionalidades disponíveis.</td>
+<td>-<strong>CA1:</strong> A tela de seleção deve apresentar claramente as três opções: "Jogador", "Torcedor" e "Atlética". <br> - <strong>CA2:</strong> Deve haver uma breve descrição para cada tipo de perfil, explicando seu propósito no aplicativo. <br> -<strong>CA3:</strong> A seleção de um tipo de perfil deve ser obrigatória para continuar. <br> - <strong>CA4:</strong> O sistema deve adaptar o fluxo de onboarding com base na escolha, se "Atlética", pode pedir informações adicionais da organização e verificação através de um formulário enviando documentação comprobatória para o time Aton conceder um selo de verificado e permitir a criação do grupo, se “Jogador”, Levar para uma página de entrar ou criar um time, se “torcedor”, levar direto para o campo de pesquisa de perfis de atlética para seguir.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>US3 F1 EP2:</strong> <strong>Como um</strong> usuário já cadastrado, eu quero poder fazer login na minha conta usando meu e-mail e senha, para que eu possa acessar meu perfil e as informações da plataforma de forma segura.</td>
+<td>- <strong>CA1</strong>: A tela de login deve ter campos para e-mail e senha. <br> - <strong>CA2</strong>:  O sistema deve validar as credenciais e conceder acesso se estiverem corretas. <br> - <strong>CA3</strong>: Em caso de credenciais incorretas, uma mensagem de erro clara ("E-mail ou senha inválidos") deve ser exibida. <br> - <strong>CA4</strong>: Deve haver um link ou botão para "Esqueci minha senha" para iniciar o processo de recuperação.</td>
+</tr>
+<tr>
+<td><strong>Perfil de Usuário Personalizável e Informativo</strong> <br> Uma vez autenticado, o usuário precisa de um espaço para expressar sua identidade. Esta feature permite que todos os tipos de perfis (jogadores, torcedores e atléticas) configurem e personalizem suas informações, como foto, nome de usuário, biografia e um banner, tornando o perfil único e informativo para outros membros da comunidade.</td>
+<td><strong>US4 F2 EP2:</strong> <strong>Como um</strong> jogador ou torcedor, eu quero poder adicionar e editar informações básicas no meu perfil, como uma foto, nome de usuário, e uma pequena biografia, para que outros usuários possam me identificar e conhecer meus interesses esportivos.</td>
+<td>-<strong>CA1:</strong> O usuário deve poder fazer o upload de uma foto de perfil a partir da galeria do celular. <br> - <strong>CA2:</strong> A foto de perfil deve ser redimensionada e exibida em um formato circular padrão no aplicativo. <br> - <strong>CA3:</strong> O usuário deve poder definir um nome de usuário único (o sistema deve verificar a disponibilidade). <br> - <strong>CA4:</strong> O campo de biografia deve ter um limite de caracteres (ex: 150 caracteres) para manter a concisão. <br> - <strong>CA5:</strong> O usuário deve poder salvar as alterações, e elas devem ser refletidas imediatamente em seu perfil.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>US5 F2 EP2:</strong> <strong>Como um</strong> usuário (jogador, torcedor ou atlética), eu quero poder adicionar uma imagem de banner (foto de capa) ao meu perfil, para que eu possa personalizar ainda mais minha página e expressar minha identidade ou a da minha equipe/atlética de forma mais visual.</td>
+<td>CA1: Deve haver uma área designada no topo do perfil para a imagem do banner. <br> - <strong>CA2:</strong> O usuário deve poder fazer o upload de uma imagem da galeria do celular. <br> - <strong>CA3:</strong> A imagem deve ser ajustada para as dimensões corretas do banner, permitindo um reposicionamento básico. <br> - <strong>CA4:</strong> As alterações no banner devem ser salvas e exibidas publicamente no perfil do usuário. <br> - <strong>CA5:</strong> O perfil deve ter uma aparência visualmente agradável tanto com quanto sem a imagem de banner.</td>
+</tr>
+<tr>
+<td><strong>Remover Conta</strong></td>
+<td><strong>US6 F3 EP2:</strong> Como um usuário eu quero ser capaz de deletar minha própria conta, para que eu não seja mais encontrado dentro do app</td>
+<td>-<strong>CA1:</strong>  Dentro da área de configurações o usuário deverá ver um botão escrito “Deletar minha conta” <br> -<strong>CA2:</strong> Caso o usuário clique em deletar, ele deverá receber um aviso de confirmação para a exclusão de conta.  <br> -<strong>CA3:</strong> No aviso de confirmação, o usuário, deverá confirmar a senha de sua conta. <br> - <strong>CA4:</strong> Com o processo de exclusão bem sucedido, TODOS os dados do usuário deverão ser apagados do banco de dados. <br> - <strong>CA5:</strong> Com o processo de exclusão bem sucedido, o usuário não será capaz de recuperar os dados de sua conta, uma vez que já excluída.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="epico-3-feed-de-eventospartidas">Épico 3: Feed de Eventos/Partidas</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Funcionalidade</strong></th>
+<th><strong>História de Usuário</strong></th>
+<th><strong>Critérios de Aceitação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Crud de Post, tipo Instagram(comentar, denunciar, curtir postagens).</strong></td>
+<td><strong>US7 F4 EP4:</strong> Eu como organizador de um evento,  quero poder criar/editar/excluir postagens, para que eu possa compartilhar informações ou momentos do evento com os usuários.</td>
+<td>- <strong>CA1:</strong> Organizadores devem poder criar postagens com (talvez foto e vídeo) texto. <br> - <strong>CA2:</strong> O organizador criador do post deve poder excluir qualquer comentário em seu post. <br>  - <strong>CA3:</strong> O usuário que postou deve poder editar os campos da postagem.<br>  - <strong>CA4:</strong> Apenas o organizador criador do post deve ter permissão para excluir a própria postagem, mediante confirmação da ação.<br>  - <strong>CA5:</strong> Após criar, editar ou excluir uma postagem, o sistema deve exibir uma notificação ou mensagem de confirmação de sucesso ou erro.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>US8 F4 EP3:</strong> Eu, como usuário logado, quero curtir, comentar, compartilhar e interagir com postagens no feed de eventos e partidas, para expressar minhas opiniões, engajar com outros usuários e acompanhar o conteúdo de que gosto.</td>
+<td>- <strong>CA1:</strong> O campo de comentários deve ser vísivel para todos os usuários logados. <br> -<strong>CA2:</strong> O usuário deve conseguir curtir e descurtir postagens, com a contagem de curtidas sendo atualizada em tempo real. <br> - <strong>CA3:</strong>  O usuário deve conseguir adicionar comentários e visualizar os comentários feitos por outros usuários em ordem cronológica. <br> - <strong>CA4:</strong> O usuário deve conseguir compartilhar postagens, podendo escolher entre copiar o link. <br> - <strong>CA5:</strong> O usuário deve poder denunciar postagens e comentários que infrinjam as regras da plataforma, informando o motivo da denúncia.</td>
+</tr>
+<tr>
+<td><strong>Contabilizar Presença com Botão "Eu vou"</strong></td>
+<td><strong>US9 F5 EP3:</strong> Como um usuário que quer ir ao evento, eu quero poder confirmar minha presença em eventos clicando em um botão “EU VOU”, para que os organizadores tenham uma contagem de pessoas que vão.</td>
+<td>-<strong>CA1:</strong> Dado que estou visualizando os detalhes de um evento, devo ver um botão claro com a opção “EU VOU”. <br> -<strong>CA2:</strong> Ao clicar no botão, minha presença deve ser registrada e o botão deve mudar de estado para indicar minha confirmação (ex: "Presença Confirmada") e depois redireciona para a descrição do evento. <br> -<strong>CA3:</strong> Devo poder cancelar minha confirmação de presença clicando novamente no botão ou em uma opção “Não vou” dentro da descrição do evento. <br> -<strong>CA4:</strong> A contagem de pessoas que confirmaram presença deve ser visível na página do evento.</td>
+</tr>
+<tr>
+<td><strong>CRUD partidas</strong></td>
+<td><strong>US10 F6 EP3:</strong> Eu como um organizador, quero poder criar, atualizar, visualizar e deletar partidas para que pessoas possam demonstrar interesse e se inscreverem.</td>
+<td>- <strong>CA1:</strong>  Organizadores devem poder criar uma nova partida definindo informações necessárias como data, hora, local, esporte e times. <br> -<strong>CA2:</strong> As  informações de partidas agendadas devem poder ser vistos pelos usuários. <br> -<strong>CA3:</strong>  Organizadores devem poder atualizar as informações de uma partida já criada. <br> -<strong>CA4:</strong> Organizadores devem poder deletar/remover partida. <br> -<strong>CA5:</strong> Ao criar uma partida o usuário deve poder indicar quantas pessoas estarão em cada time. <br> -<strong>CA6:</strong> Ao final de cada partida o dono do post tem até 2 horas para cadastrar a pontuação</td>
+</tr>
+<tr>
+<td>Placares de partidas</td>
+<td><strong>US11 F7 EP3:</strong> eu como um jogador ou torcedor,  quero saber o resultados de jogos passados que tenho interesse para que eu possa ter uma métrica do desempenho do time/jogador em questão.</td>
+<td>CA1: O usuário deve poder entrar na tela de partidas e procurar a partida de interesse, e ao clicar nela ver as informações como placar, equipes e jogadores que competiram. CA2: O placar deve estar disponível em até 2 horas após o jogo. CA3:  O placar deve ser simples de fácil visualização e entendimento CA4: deve haver a possibilidade de clicar no nome ou foto da equipe e ir para sua página (BIO).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="epico-4-atleticas-times-amadores">Épico 4: (Atléticas / Times Amadores )</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Funcionalidade</strong></th>
+<th><strong>História de Usuário</strong></th>
+<th><strong>Critérios de Aceitação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Criar grupos ( Times amadores / Atléticas )</strong></td>
+<td><strong>US12 F8 EP4:</strong> Como um representante de atlética, eu quero poder criar um grupo/perfil de atlética verificado para que eu possa postar eventos treinos e campeonatos da minha atlética.</td>
+<td>CA1: O Usuário deve poder criar um grupo em uma tela onde peça as informações para aquele grupo CA2: Na tela de criação de um grupo o sistema deve mostrar um checkbox de “verificação de atlética” onde o usuário possa requisitar por meio de um formulário externo (google forms) a verificação por meio de documentação comprobatória a ser analisada e verificada pelo time Aton. CA3: Um grupo deve ter: <br>nome;<br>Descrição;<br>Esportes praticados;<br>Admins;<br>Demais usuários.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>US13 F8 EP4:</strong> Como um estudante jogador, eu quero poder criar grupos (times amadores) para que eu possa criar partidas casuais onde outros usuários possam se inscrever.</td>
+<td>CA1: O Usuário deve poder criar um grupo em uma tela onde peça as informações para aquele grupo.CA2: O usuário deve preencher uma tela que pede as informações sobre o grupo a ser criado.CA3: Um grupo deve ter: nome; Descrição; Esportes praticados; Admins; Demais usuários.CA4: ao final da criação do grupo o usuário deve poder cadastrar pessoas em seu grupo recém criadoCA5: O usuário criador deve ter no grupo o status de “admin” (um admin pode adicionar e remover pessoas de seu grupo)</td>
+</tr>
+<tr>
+<td><strong>Encontrar grupos ( Times amadores ) para ingressar</strong></td>
+<td><strong>US14 F9 EP4:</strong> Como uma atlética, eu quero adicionar e gerenciar atletas oficiais no elenco para que eu possa ter um controle centralizado dos membros.</td>
+<td>CA1: A atlética deve poder adicionar novos atletas ao elenco, informando dados básicos como nome completo, posição, matrícula, e contato.CA2: A atlética deve poder editar as informações dos atletas já cadastrados.CA3: A atlética deve poder remover atletas do elenco oficial, com confirmação antes da exclusão.CA4: Apenas usuários com perfil de administrador da atlética devem ter permissão para adicionar, editar ou excluir atletas.</td>
+</tr>
+<tr>
+<td><strong>Seguir grupos</strong></td>
+<td><strong>US15 F10 EP4:</strong> Como um usuário eu quero poder seguir os grupos que eu quiser, para que eu consiga acompanhar as novidades mais recentes.</td>
+<td>CA1: Na aba de pesquisar, o usuário deverá colocar o nome do grupo que ele pretende seguir.CA2: Serão exibidos em formato de lista, todos os perfis com o nome “similar” ao da busca feita. CA3: Ao selecionar o grupo, o usuário será redirecionado a página do perfil.CA4: Na aba do perfil deverá conter um botão escrito “Seguir”.CA5: Ao clicar o usuário passará a seguir o grupo e o nome do botão deverá ser alterado para “Seguindo”.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>US16 F10 EP4:</strong> Como um usuário eu quero parar de seguir grupos, para que eu deixe de receber suas novas atualizações (postagens) no meu feed.</td>
+<td>CA1: O usuário, seja pesquisando na aba “Pesquisar” ou indo nos perfis que ele segue, será redirecionado ao perfil do grupo.CA2: No perfil do grupo, o usuário estará como “Seguindo”, ao clicar no botão, o usuário receberá uma mensagem confirmando a ação, “Deseja realmente parar de seguir @perfil...” . CA3: Ao confirmar a ação, o botão deverá ser alterado para “Seguir”, e o grupo deverá ser removido da lista de “Seguindo” do usuário.</td>
+</tr>
+<tr>
+<td>Solicitar a entrada em um grupo</td>
+<td><strong>US17 F11 EP4:</strong> Como um usuário, eu quero poder participar de grupos que estão disponiveis no app para que eu possa interagir mais com a comunidade.</td>
+<td>CA1: O ususário deve visualizar um botão como “Pedir para entrar”, solicitando sua entrada ao grupo. CA2: O usuário só pode enviar pedidos para entrar caso o grupo ainda tenha vagas sobrando. CA3: O usuário deve receber uma mensagem após sua solicitação, como: “Solicitação enviada com sucesso” ou “Erro ao enviar solicitação: [ERRO]”. CA4: O usuário deve conseguir ver o status de sua solicitação. CA5: Usuário deve ser capaz de cancelar sua solicitação caso necessário CA6: O usuário deve ser capaz de visualizar quantas pessoas existem no grupo que deseja entrar.</td>
+</tr>
+<tr>
+<td><strong>Cadastro de pessoas em seu próprio time</strong></td>
+<td><strong>US18 F12 EP4:</strong> Como uma atlética, eu quero adicionar e gerenciar atletas oficiais no elenco para que eu possa ter um controle centralizado dos membros.</td>
+<td>CA1: O usuário (administrador da página da atlética), quando acessar a aba das equipes, deve ver um botão para “Adicionar Atleta”. CA2: Quando o usuário clicar no botão, deve informar o e-mail do estudante a ser convidado. Então, o sistema deve enviar um invite para ao estudante, que precisará aceitá-lo. CA3: O usuário deve conseguir visualizar o nome e perfil do estudante caso o mesmo tenha aceitado o convite na aba das equipes. CA4: O usuário, ao visualizar a lista de membros, deve ter a opção de adicionar cargos (tesouraria, marketing, etc...) e remover o estudante da equipe, revogando seu acesso como membro da atlética.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>US19 F12 EP4:</strong> Como um grupo amador, eu quero uma forma rápida e simples de convidar pessoas para o meu time para que possamos nos organizar facilmente para marcar jogos casuais.</td>
+<td>CA1: O usuário, quando acessar a aba de time amador, deve ver um botão para “Convidar para o time”.CA2: Quando o usuário clicar no botão, deve informar o e-mail do estudante a ser convidado. Então, o sistema deve enviar um invite para ao estudante, que precisará aceitá-lo.CA3: Quando o usuário clicar no botão, deve haver a opção de buscar e convidar amigos já adicionados na plataforma diretamente. CA4: O usuário, ao visualizar a lista de membros, deve ter a opção de remover o estudante da equipe, e os outros membros não podem remover outros membros.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="epico-5-sistema-de-notificacoes">Épico 5: Sistema de Notificações</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Funcionalidade</strong></th>
+<th><strong>História de Usuário</strong></th>
+<th><strong>Critérios de Aceitação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>funcionalidade1</td>
+<td><strong>US1 F1 EP2</strong>:</td>
+<td>- <strong>CA1</strong>: <br> - <strong>CA2</strong>:  <br> - <strong>CA3</strong>:  <br> - <strong>CA4</strong>:</td>
+</tr>
+<tr>
+<td>Funcionalidade2</td>
+<td><strong>US2 F2 EP2</strong>:</td>
+<td>- <strong>CA1</strong>: <br> - <strong>CA2</strong>:  <br> - <strong>CA3</strong>:  <br> - <strong>CA4</strong>:  <br> - <strong>CA5</strong>: <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="epico-6-gerenciamento-do-app">Épico 6: Gerenciamento do app</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Funcionalidade</strong></th>
+<th><strong>História de Usuário</strong></th>
+<th><strong>Critérios de Aceitação</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>funcionalidade1</td>
+<td><strong>US1 F1 EP2</strong>:</td>
+<td>- <strong>CA1</strong>: <br> - <strong>CA2</strong>:  <br> - <strong>CA3</strong>:  <br> - <strong>CA4</strong>:</td>
+</tr>
+<tr>
+<td>Funcionalidade2</td>
+<td><strong>US2 F2 EP2</strong>:</td>
+<td>- <strong>CA1</strong>: <br> - <strong>CA2</strong>:  <br> - <strong>CA3</strong>:  <br> - <strong>CA4</strong>:  <br> - <strong>CA5</strong>: <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="perfis-personas">Perfis &amp; Personas</h2>
+<p>Na idealização do projeto concebida por Lean inception todo usuário tem as mesmas permissões de acesso, exceto o usuário Administrador. Cada permissão é concedida a depender o fluxo de uso do usuário ao criar um grupo onde este usuário será terá permissões avançadas para aquele grupo. Após a tabela, mais especificações sobre a verificação e gestão de usuários.  </p>
+<p>Tabela : Perfis de acesso </p>
+<table>
+<thead>
+<tr>
+<th>Nome do Perfil</th>
+<th>Caracteristicas do perfil</th>
+<th>permissões</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usuário comum</td>
+<td>Cliente final a utilizar o aplicativo, sendo ativo em esportes ou apenas espectador de eventos promovidos por terceiros.</td>
+<td>Criar times/equipes, Acesso a publicações de usuários que ele segue.</td>
+</tr>
+<tr>
+<td>Gerente de time</td>
+<td>Persona ativa em esportes que gerencia uma equipe amadora.</td>
+<td>Adicionar e remover pessoas à sua equipe + Permissões de Usuário comum</td>
+</tr>
+<tr>
+<td>Representante de atlética</td>
+<td>Persona cujo objetivo é representar a atlética e suas ações, bem como publicar eventos e competições.</td>
+<td>Ter um selo de verificado ao ser submetido a uma verificação de comprovação + permissões de gerente de time</td>
+</tr>
+</tbody>
+</table>
+<p>Na criação de um grupo/time/equipe, o usuário será submetido a uma classificação por exemplo para as atléticas, um representante da organização deverá criar uma equipe/grupo/time e ao preencher o formulário de criação deverá marcar uma opção como “é representante de uma atlética da UnB? Solicite sua verificação: [ ]” onde será enviado um link para um formulário externo para envio de documentação comprobatória que será analisada pela equipe de desenvolvimento.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé">
+        
+          
+          <a href="../processo_desenv/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Processo de Desenvolvimento">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Processo de Desenvolvimento
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../metricas_medicoes/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Métricas e Medições">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Métricas e Medições
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/FGA0138-MDS-Ajax/2025.2-Ra" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:241025523@aluno.unb.br" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../assets/javascript/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

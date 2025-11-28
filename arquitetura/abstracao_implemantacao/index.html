@@ -1,0 +1,1973 @@
+<!DOCTYPE html><html lang="pt" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação do projeto Aton">
+      
+      
+        <meta name="author" content="Equipe Aton">
+      
+      
+      
+        <link rel="prev" href="../arquitetura_produto/">
+      
+      
+        <link rel="next" href="../ref/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Abstração e Implementação - Documentação Aton</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/home.css">
+    
+      <link rel="stylesheet" href="../../assets/css/global.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#24-abstracao-e-implementacao" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Documentação Aton" class="md-header__button md-logo" aria-label="Documentação Aton" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação Aton
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Abstração e Implementação
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FGA0138-MDS-Ajax/2025.2-Ra" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub/Aton
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação Aton" class="md-nav__button md-logo" aria-label="Documentação Aton" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Documentação Aton
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FGA0138-MDS-Ajax/2025.2-Ra" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub/Aton
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documento de visão
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Documento de visão
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/visao_geral_prod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral do Produto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/visao_geral_proj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral do Projeto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/processo_desenv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Processo de Desenvolvimento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/escopo_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Escopo do Projeto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/metricas_medicoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Métricas e Medições
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testes de Software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/organizacao_grupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Organização do Grupo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Referências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Atas de reuniões
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Atas de reuniões
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concepção de produto e ideias
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Definições de papéis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lean inception
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cont. de Lean inception
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sequenciador do MVP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Iniciação do projeto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas/ata7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sprint 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentação da API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Documentação da API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução à API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoints de Usuário
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoints de Grupo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/invite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoints de Convites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/match/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoints de Partidas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/post/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoint de Posts/eventos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticação e Autorização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Referências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Arquitetura
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introdução
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../definicoes_gerais/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Definições Gerais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detalhamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Detalhamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitetura_produto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura x Produto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Abstração e Implementação
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Abstração e Implementação
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Sumário">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sumário
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#24-abstracao-e-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Abstração e Implementação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Abstração e Implementação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-visao-logica" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1 Visão Lógica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-o-modulo-appsapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      a) O módulo apps/api
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-modulos-frontend-appsmobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      b) Módulos FrontEnd apps/mobile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-modulos-compartilhados-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      C) Módulos Compartilhados (packages)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#242-visao-de-dados-mer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2 Visão de Dados (MER)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-visao-de-implantacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Visão de Implantação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 Visão de Implantação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-descricao-da-infraestrutura-de-implantacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1 Descrição da Infraestrutura de Implantação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-justificativa-das-tecnologias" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2 Justificativa das Tecnologias
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-restricoes-adicionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Restrições Adicionais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Restrições Adicionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261-restricoes-negociais" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.1 Restrições Negociais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262-restricoes-tecnicas-pre-requisitos-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.2 Restrições Técnicas (Pré-requisitos de Ambiente)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#263-restricoes-de-qualidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.3 Restrições de Qualidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#264-restricoes-de-seguranca-e-conformidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.4 Restrições de Segurança e Conformidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Referências
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Guia de Contribuição
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Sumário">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sumário
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#24-abstracao-e-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Abstração e Implementação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Abstração e Implementação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-visao-logica" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1 Visão Lógica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-o-modulo-appsapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      a) O módulo apps/api
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-modulos-frontend-appsmobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      b) Módulos FrontEnd apps/mobile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-modulos-compartilhados-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      C) Módulos Compartilhados (packages)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#242-visao-de-dados-mer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2 Visão de Dados (MER)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-visao-de-implantacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Visão de Implantação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 Visão de Implantação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-descricao-da-infraestrutura-de-implantacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1 Descrição da Infraestrutura de Implantação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-justificativa-das-tecnologias" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2 Justificativa das Tecnologias
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-restricoes-adicionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Restrições Adicionais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Restrições Adicionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261-restricoes-negociais" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.1 Restrições Negociais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262-restricoes-tecnicas-pre-requisitos-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.2 Restrições Técnicas (Pré-requisitos de Ambiente)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#263-restricoes-de-qualidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.3 Restrições de Qualidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#264-restricoes-de-seguranca-e-conformidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.4 Restrições de Segurança e Conformidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Abstração e Implementação</h1>
+
+<h2 id="24-abstracao-e-implementacao">2.4 Abstração e Implementação</h2>
+<h3 id="241-visao-logica">2.4.1 Visão Lógica</h3>
+<p>Seguindo a estrutura de Cliente-Servidor em construção de software MonoRepo, temos a seguinte visão lógida do software:</p>
+<blockquote>
+<p>Estrutura Macro</p>
+</blockquote>
+<p>O projeto é estuturado em monorepo, com gerenciamento feito pelo <code>PNPM</code> e possui otimização pelo Turborepo, com diferenciação entra FrontEnd e BackEnd.</p>
+<p>A raíz do projeto possui o arquivo pnpm-workspace.yaml, que define:</p>
+<ul>
+<li><code>apps/*</code> contendo as aplicações executáveis do aplicativo móvel e API</li>
+<li><code>packages/*</code> contendo as configurações compartilhadas como Linters, Configs de testes e outros, usados pela aplicação em apps.</li>
+</ul>
+<blockquote>
+<p>Módulos Principais</p>
+</blockquote>
+<p>A pasta <code>apps/</code> possui os componentes principais do sistema:</p>
+<h3 id="a-o-modulo-appsapi">a) O módulo <code>apps/api</code></h3>
+<p>É o módulo de API do backend do Projeto, constituído em Node.js com TypeScript</p>
+<ul>
+<li>O Framework utiliza <strong>Express.JS</strong> e <strong>ExpoRouter</strong> para roteamento e gerenciamento de requisições.</li>
+<li>O <strong>Banco de dados</strong> utiliza o <strong>Prisma</strong> <code>(Prisma/schema.prisma)</code> para se comunicar com o banco de dados <strong>Postgres.SQL</strong>, rodando a partir de um container do <strong>DOCKER</strong>.</li>
+<li>A <strong>estrutura de módulos</strong>: A API é organizada por <em>features</em> como visto em <code>src/modules/user</code> e <code>src/modules/auth</code> e cada módulo contém: <code>routes.ts</code> para definir endpoints da API, <code>controllers.ts</code> para orquestrar a lógica de requisição, <code>services.ts</code> contendo a lógica de negócios. <code>repository.ts</code> que abstrai o acesso direto ao banco de dados do <strong>Prisma</strong>.</li>
+<li>Os <strong>testes de API</strong> são configurados com o <strong>JEST</strong> e estáo na pasta <code>src/__tests__</code>, com foco em testes de integração e testes unitários.</li>
+</ul>
+<h3 id="b-modulos-frontend-appsmobile">b) Módulos FrontEnd <code>apps/mobile</code></h3>
+<p>É o aplicativo móvel principal, desenvolvido com <strong>REACT NATIVE</strong> e <strong>EXPO</strong>.</p>
+<ul>
+<li><strong>Roteamento</strong>: É feito através do <strong>ExpoRouter</strong>, com uma abordagem <em>file based routing</em> em que a estrutura de diretórios define a rota de navegaçõa do app.</li>
+<li><code>(Auth)</code>: Define a tela de autenticação como: <code>login.tsc</code> e <code>cadastro.tsx</code>.</li>
+<li><code>(Dashboard)</code>: Define a área logada do aplicativo, e possui páginas como (<code>Home.tsx</code> e <code>Teams.tsx</code>).</li>
+<li><strong>Componentização</strong>: O sistema está organizado com uma pasta dedicada a <strong>componentes reutilizáveis</strong> em (<code>components/</code>).</li>
+<li><strong>Estilização e temas</strong>: São definidos por designs (<code>constants/Colors.ts</code> e <code>constants/Fonts.ts</code> e <code>constants/Theme.ts</code>).</li>
+<li>Os <strong>Testes</strong>: são encontrados na pasta (<code>__tests__/</code>) e utilizam o <strong>JEST</strong> (com o React Native Testing Library) para testar componentes e páginas (<code>components/</code> e <code>paginas/</code>)</li>
+</ul>
+<h3 id="c-modulos-compartilhados-packages">C) Módulos Compartilhados (packages)</h3>
+<p>O diretório packages é fundamental para a estratégia do monorepo, garantindo que todas as apps sigam os mesmos padrões de qualidade de código:</p>
+<ul>
+<li>
+<p><code>packages/eslint-config</code>: Configuração base do ESLint, compartilhada entre api e mobile.</p>
+</li>
+<li>
+<p><code>packages/jest-config</code>: Presets de configuração do Jest.</p>
+</li>
+<li>
+<p><code>packages/prettier-config</code>: Regras de formatação de código (Prettier).</p>
+</li>
+<li>
+<p><code>packages/typescript-config</code>: Arquivos tsconfig.json base, garantindo consistência nas configurações do TypeScript.</p>
+</li>
+</ul>
+<blockquote>
+<p>Diagrama UML:</p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/imgs/logica.jpg" data-desc-position="bottom"><img alt="Diagrama de pacotes UML" src="../../assets/imgs/logica.jpg"></a></p>
+<p align="center"><em>Figura 2.4.1 - Diagrama de pacotes UML</em></p>
+<p align="center"><em>Fonte: <a href="https://github.com/osamuelleite">Samuel Leite</a></em></p>
+
+<p>O diagrama de classes em alto nível representa a estrutura lógica do backend, destacando a separação entre camada de lógica de negócio e camada de persistência.</p>
+<p>Na parte superior do fluxo estão as classes App e Server, responsáveis pela configuração e inicialização da aplicação, incluindo o registro das rotas e middlewares globais. As rotas direcionam as requisições HTTP para os Controllers, que são os pontos de entrada da lógica de negócio.</p>
+<p>A classe Controller representa a camada de controle, responsável por receber as requisições, acionar as validações (via middlewares e schemas Zod) e encaminhar as operações à camada de serviço.
+A Service implementa a lógica de negócio, verificando regras como unicidade de email, autenticação e consistência dos dados. Ela não acessa o banco diretamente, para isso utiliza a Repository.</p>
+<p>A Repository representa a camada de persistência, responsável por consultar, criar, atualizar e excluir dados no banco através do PrismaClient, que é o ORM usado para interagir com o banco de dados relacional. Assim, o repositório isola o acesso ao banco, permitindo que a lógica de negócio permaneça independente da tecnologia de persistência.</p>
+<p>As classes Validation e Middlewares aparecem como suporte transversal, garantindo a validação dos dados, autenticação e tratamento padronizado de erros. A classe ApiError centraliza a forma como exceções são propagadas e tratadas, mantendo consistência nas respostas de erro.</p>
+<p>Em resumo, o diagrama mostra uma arquitetura em camadas bem definidas:</p>
+<ul>
+<li>
+<p>Controller: interface entre a API e a lógica de negócio.</p>
+</li>
+<li>
+<p>Service: regras e operações do domínio.</p>
+</li>
+<li>
+<p>Repository: acesso e manipulação de dados persistentes.</p>
+</li>
+<li>
+<p>PrismaClient: integração direta com o banco, cliente ORM responsável pela execução das queries no Postgres</p>
+</li>
+<li>
+<p>Middlewares e ApiError padronizam validação e tratamento de erros.</p>
+</li>
+</ul>
+<p>Essas camadas interagem de forma sequencial: Controller → Service → Repository → Banco de Dados, com middlewares e validações atuando de forma transversal. Essa estrutura favorece organização, testabilidade e manutenção do sistema.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/imgs/diagrama-de-classes-user.jpeg" data-desc-position="bottom"><img alt="Diagrama de classes - User" src="../../assets/imgs/diagrama-de-classes-user.jpeg"></a></p>
+<p align="center"><em>Figura 2.4.2 - Diagrama de classes - User</em></p>
+<p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
+
+<ul>
+<li>
+<p>UserController: expõe endpoints REST (createUser, getUserById, updateUser, deleteUser). Recebe requisições, aplica validações com o ValidateRequestMiddleware e delega a lógica ao UserService. Em caso de erro, lança ApiError.</p>
+</li>
+<li>
+<p>UserService: contém as regras de negócio (ex.: impedir e-mail duplicado, validar permissões de atualização/exclusão). Utiliza o UserRepository para acessar o banco e lança ApiError em casos de violação de regras.</p>
+</li>
+<li>
+<p>UserRepository: responsável pela persistência via PrismaClient. Executa operações CRUD (create, findById, update, delete) e consultas específicas. Isola o acesso ao banco, mantendo o service independente da tecnologia usada.</p>
+</li>
+<li>
+<p>User (modelo de domínio): representa os dados do usuário: id, name, userName, email, createdAt, updatedAt. Pode incluir campos adicionais como profileType.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/imgs/diagrama-de-classes-Group.jpeg" data-desc-position="bottom"><img alt="Diagrama de classes - Group" src="../../assets/imgs/diagrama-de-classes-Group.jpeg"></a></p>
+<p align="center"><em>Figura 2.4.3 - Diagrama de classes - Group</em></p>
+<p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
+
+<ul>
+<li>
+<p>GroupController: entrada das requisições REST para grupos, aplica validação (middleware) e delega para o service.</p>
+</li>
+<li>
+<p>GroupService: contém lógica de domínio (ex.: garantir unicidade de nome, checar permissões do ownerId, regras de groupType), não acessa o DB diretamente.</p>
+</li>
+<li>
+<p>GroupRepository: camada de persistência, encapsula consultas e comandos ao Prisma (prisma.group.*) e retorna objetos Group (tipados conforme o MER do projeto).</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/imgs/diagrama-de-classes-Post.jpeg" data-desc-position="bottom"><img alt="Diagrama de classes - Post" src="../../assets/imgs/diagrama-de-classes-Post.jpeg"></a></p>
+<p align="center"><em>Figura 2.4.4 - Diagrama de classes - Post</em></p>
+<p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
+
+<ul>
+<li>
+<p>PostController: é o ponto de entrada das requisições HTTP, valida o request (via middleware Zod), extrai contexto de autenticação e delega ao PostService. Não contém lógica de negócio além do roteamento e preparação de respostas.</p>
+</li>
+<li>
+<p>PostService: centraliza as regras de negócio do domínio Post:</p>
+</li>
+<li>
+<p>valida permissões (por exemplo, só admins do groupId podem publicar eventos),</p>
+</li>
+<li>
+<p>garante regras específicas de postType (se <code>EVENTO</code>, exige eventDate e possivelmente location),</p>
+</li>
+<li>
+<p>orquestra ações compostas (criar post + notificar membros, atualizar caches, etc.),</p>
+</li>
+<li>
+<p>lança ApiError para erros de negócio (404, 403, 400).</p>
+</li>
+<li>
+<p>PostRepository: abstrai o acesso ao banco, traduz chamadas da camada de serviço em operações do ORM (<code>prisma.post.create/findUnique/findMany/update/delete</code>) e faz joins/queries relacionadas (ex.: buscar comments, contar likes, listar posts de um group). Aqui também fica a lógica de persistência de relacionamentos N:M (postLikes) e operações que afetam múltiplas tabelas (recomendável usar transações do Prisma nesses casos).</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/imgs/diagrama-de-classes-Comment.jpeg" data-desc-position="bottom"><img alt="Diagrama de classes - Comment" src="../../assets/imgs/diagrama-de-classes-Comment.jpeg"></a></p>
+<p align="center"><em>Figura 2.4.5 - Diagrama de classes - Comment</em></p>
+<p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
+
+<ul>
+<li>
+<p>CommentController: recebe as requisições HTTP relacionadas a comentários (criar, listar por post, obter, atualizar, excluir). Aplica validações via middleware (Zod) e extrai contexto de autenticação antes de delegar à camada de serviço.</p>
+</li>
+<li>
+<p>CommentServic: contém a lógica de negócio dos comentários, validações específicas (ex.: post existe, usuário não está banido do grupo), autorização (só autor ou moderador pode editar/excluir), regras de formatação/normalização (ex.: sanitização do content) e orquestra chamadas a repositórios e possíveis side-effects (notificações, incrementos de contadores). Em caso de violação de regra, lança ApiError. Essa separação mantém regras de domínio fora do controller. (baseado na visão lógica e MER do projeto).</p>
+</li>
+<li>
+<p>CommentRepository: encapsula a persistência com Prisma, mapeia DTOs para <code>prisma.comment.create/findUnique/findMany/update/delete</code>. Também resolve associações (trazer autor, ou contar comentários do post) e é o local apropriado para usar transações quando operações afetam múltiplas tabelas (ex.: criar comentário + atualizar contador de comentários no post). O modelo entidade-relacionamento define a relação 1:N entre Post e Comment e 1:N entre User e Comment, que o repositório materializa nas queries.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/imgs/diagrama-de-classes-Match.jpeg" data-desc-position="bottom"><img alt="Diagrama de classes - Match" src="../../assets/imgs/diagrama-de-classes-Match.jpeg"></a></p>
+<p align="center"><em>Figura 2.4.6 - Diagrama de classes - Match</em></p>
+<p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
+
+<ul>
+<li>
+<p>MatchController: ponto de entrada HTTP para operações relacionadas a partidas (criar, listar, atualizar, excluir, inscrever usuário). As rotas aplicam validação (middleware Zod) e autenticação, e só orquestram chamadas ao serviço.</p>
+</li>
+<li>
+<p>MatchService: contém a lógica de negócio da entidade Match:</p>
+</li>
+<li>
+<p>valida regras do domínio (por exemplo: limites de participantes, regras de horário, somente organizador pode finalizar/editar placar),</p>
+</li>
+<li>
+<p>verifica permissões (quem pode criar/editar/excluir),</p>
+</li>
+<li>
+<p>orquestra ações compostas (criar partida + criar 2 Team como entidades fracas, notificar inscritos),</p>
+</li>
+<li>
+<p>usa transações quando necessário (criar Match e Team em uma operação atômica),</p>
+</li>
+<li>
+<p>MatchRepository: abstrai acesso ao banco via PrismaClient (delegate match, team, tabela de participantes N:M). Implementa queries: findById, findMany (com joins para times/participantes), addParticipant/removeParticipant (N:M), update e delete. É aqui que se usa prisma.$transaction(...) quando múltiplas tabelas precisam ser alteradas de forma atômica (ex.: adicionar participante e incrementar contadores).</p>
+</li>
+<li>
+<p>Domain Model: Match guarda metadados da partida (times referenciais, data, local, placar, criador). Team é uma entidade fraca ligada a Match que relaciona userId a um time (home/away) e modela a composição 1:2 descrita no MER. Usuários podem se inscrever em Matches (N:M), essa inscrição é representada por uma tabela de ligação (e gerenciada pelo repositório).</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/imgs/diagrama-de-classes-Teams.jpeg" data-desc-position="bottom"><img alt="Diagrama de classes - Teams" src="../../assets/imgs/diagrama-de-classes-Teams.jpeg"></a></p>
+<p align="center"><em>Figura 2.4.7 - Diagrama de classes - Teams</em></p>
+<p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
+
+<p>A entidade Team é uma entidade fraca ligada a uma Match (cada Match tem dois Teams: home e away). Um Team relaciona usuários (membros) àquela equipe, isso pode ser modelado como array de userId ou, preferivelmente, por uma tabela N:M team_members.</p>
+<ul>
+<li>
+<p>TeamController: Expondo endpoints REST (criar time, adicionar/remover membro, listar times de uma partida, atualizar, excluir). Recebe requests validados por middleware (Zod) e contexto de autenticação; delega a lógica ao service.</p>
+</li>
+<li>
+<p>TeamService: Contém regras de negócio como, quem pode criar/alterar times (ex.: só o organizador da Match), limites de membros por time, verificação de conflito (usuário não pode estar em dois times da mesma Match), e decisão de usar transação quando uma operação altera múltiplas tabelas (por exemplo, ao adicionar membro: inserir em team_members + atualizar contador em team ou match). Em violações de regras lança ApiError.</p>
+</li>
+<li>
+<p>TeamRepository: Faz o mapeamento para o banco (Prisma): prisma.team.create, prisma.team.update, prisma.teamMembers.create / delete, prisma.team.findMany com where: { matchId } e includes para membros. Operações compostas que alteram team e a tabela de membros devem ser feitas via prisma.$transaction(...) para garantir atomicidade.</p>
+</li>
+<li>
+<p>Modelo de dados: Team armazena metadados (role, referência a matchId) enquanto a associação team_members materializa os membros (teamId, userId). Essa separação facilita consultas (listar membros, checar inscrições) e mantém normalização.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/imgs/diagrama-de-classes-Report.jpeg" data-desc-position="bottom"><img alt="Diagrama de classes - Report" src="../../assets/imgs/diagrama-de-classes-Report.jpeg"></a></p>
+<p align="center"><em>Figura 2.4.8 - Diagrama de classes - Report</em></p>
+<p align="center"><em>Fonte: <a href="https://github.com/LasagnaIsLove">Gabriel Mota</a></em></p>
+
+<ul>
+<li>
+<p>ReportController: expõe endpoints REST (criar, listar, obter, atualizar status, excluir). Aplica validação (Zod) e autenticação via middlewares, e limita-se a orquestrar chamadas aos serviços.</p>
+</li>
+<li>
+<p>ReportService: concentra regras de negócio, por exemplo: garantir que targetPostId ou targetCommentId seja informado (mas não ambos), validar que o alvo existe, impedir denúncias duplicadas do mesmo usuário sobre o mesmo alvo, definir status inicial (OPEN) e decidir side-effects (notificar moderadores). Em violações de regras lança ApiError.</p>
+</li>
+<li>
+<p>ReportRepository: encapsula a persistência com Prisma (prisma.report.create/findUnique/findMany/update/delete) e traz queries específicas (relatórios por alvo, contagem de denúncias por post/comment). Operações que afetam múltiplas tabelas (ex.: criar report + marcar post como under_review) devem usar transação (prisma.$transaction) aqui.</p>
+</li>
+<li>
+<p>Integração com Post/Comment/User: um Report referencia um Post ou um Comment (1:N do alvo para reports) e sempre referencia o reporter (User). O repositório resolve essas associações ao devolver o objeto Report com includes quando solicitado (por exemplo, include do reporter e do target para a interface administrativa).</p>
+</li>
+</ul>
+<h2 id="242-visao-de-dados-mer">2.4.2 Visão de Dados (MER)</h2>
+<p>O Modelo Entidade-Relacionamento (MER) do sistema foi desenvolvido para representar de forma clara e estruturada as entidades principais, seus atributos e os relacionamentos entre elas. Este modelo serve como base para a criação do esquema do banco de dados relacional, garantindo que os dados sejam armazenados de maneira eficiente e consistente.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/imgs/MER.png" data-desc-position="bottom"><img alt="MER" src="../../assets/imgs/MER.png"></a></p>
+<p align="center"><em>Figura 2.4.9 - Modelo Entidade-Relacionamento (MER) do Sistema</em></p>
+<p align="center"><em>Fonte: <a href="https://github.com/CODEbugging3000">Gabriel Alves</a></em></p>
+
+<p>O MER inclui as seguintes entidades principais:</p>
+<ul>
+<li><strong>User (Usuário):</strong> Representa os usuários do sistema, com atributos principais como ID, nome, userName, email e senha, ProfileType (tipo de perfil).</li>
+<li><strong>Group (Grupo):</strong> Representa grupos de usuários, com atributos como ID, nome, bio, groupType (tipo de grupo que pode ser ATLÉTICA ou AMADOR).</li>
+<li><strong>Post (Publicação):</strong> Representa as publicações feitas pelos usuários admins de grupos, contendo atributos como ID, title, content (conteúdo), date_of_post (data e hora da publicação), postType (tipo de publicação que pode ser EVENTO ou GERAL), location e event_date opcionais para eventos.</li>
+<li><strong>Comment (Comentário):</strong> Representa os comentários feitos pelos usuários nas publicações, com atributos como ID, content (conteúdo) e createdAt (data e hora do comentário).</li>
+<li><strong>Match (Partida):</strong> Representa partidas esportivas organizadas por grupos, com atributos como ID, home_team (time da casa), away_team (time visitante), match_date (data e hora da partida), location (local) e score_home e score_away para o placar.</li>
+<li><strong>Teams (Times):</strong> Entidade fraca que representa os times associados as partidas, com apenas um atributo userId.</li>
+<li><strong>Report (Denúncia):</strong> Representa denúncias feitas por usuários contra publicações ou comentários, com atributos como ID, reason (motivo) e createdAt (data e hora da denúncia).</li>
+</ul>
+<p>Os relacionamentos entre as entidades são definidos para refletir as interações e dependências do sistema, como a associação entre usuários e grupos, publicações e comentários, e partidas e times. Foram identificados os tipos de relacionamentos (1:1, 1:N, N:M) e as cardinalidades para garantir a integridade dos dados.</p>
+<p>Os relacionamentos principais incluem:</p>
+<ul>
+<li>Um <strong>User</strong> pode pertencer a muitos <strong>Groups</strong> (N:M), e um <strong>Group</strong> pode ter muitos <strong>Users</strong>.</li>
+<li>Um <strong>User</strong> pode seguir <strong>(Follow)</strong> muitos <strong>Groups</strong> (N:M), e um <strong>Group</strong> pode ser seguido por muitos <strong>Users</strong>.</li>
+<li>Um <strong>User</strong> pode criar muitas <strong>Posts</strong> (1:N), e cada <strong>Post</strong> é criado por um único <strong>User</strong> desde que seja um admin de um <strong>Group</strong>.</li>
+<li>Um <strong>Post</strong> pode ter muitos <strong>Comments</strong> (1:N), e cada <strong>Comment</strong> é associado a um único <strong>Post</strong>.</li>
+<li>Um <strong>User</strong> pode curtir <strong>(postLike)</strong> muitas <strong>Posts</strong> (N:M), e um <strong>Post</strong> pode ser curtido por muitos <strong>Users</strong>.</li>
+<li>Um <strong>User</strong> pode fazer vários <strong>Comments</strong> (1:N), e cada <strong>Comment</strong> é feito por um único <strong>User</strong>.</li>
+<li>Um <strong>User</strong> pode marcar presença <strong>(attendance)</strong> em muitos <strong>Events</strong> (N:M), e um <strong>Event</strong> pode ter muitos <strong>Users</strong> presentes.</li>
+<li>Um <strong>User</strong> pode denunciar <strong>(Report)</strong> muitas <strong>Posts</strong> e <strong>Comments</strong> (1:N), e cada <strong>Report</strong> é feito por um único <strong>User</strong>.</li>
+<li>Um <strong>User</strong> pode criar <strong>(publish)</strong> muitas <strong>Matches</strong> (1:N), e cada <strong>Match</strong> é criada por um único <strong>User</strong>.</li>
+<li>Um <strong>User</strong> pode se inscrever em muitas <strong>Matches</strong> (N:M), e uma <strong>Match</strong> pode ter muitos <strong>Users</strong> inscritos.</li>
+<li>Uma <strong>Match</strong> tem dois <strong>Teams</strong> (1:2), e cada <strong>Team</strong> está associada a uma única <strong>Match</strong>.</li>
+</ul>
+<p>Os atributos de cada entidade foram cuidadosamente definidos para capturar todas as informações necessárias para o funcionamento do sistema, garantindo que o modelo atenda aos requisitos funcionais e não funcionais estabelecidos, sabendo que podem sofrer alterações futuras de acordo com a evolução do projeto.</p>
+<h2 id="25-visao-de-implantacao">2.5 Visão de Implantação</h2>
+<p>A visão de implantação deste projeto detalha a infraestrutura de software e as configurações de execução do sistema em um ambiente de desenvolvimento local (<code>localhost</code>).</p>
+<p>O foco é garantir a <strong>paridade de ambiente</strong> entre os desenvolvedores, facilitando a colaboração e eliminando inconsistências de configuração.</p>
+<hr>
+<h3 id="251-descricao-da-infraestrutura-de-implantacao">2.5.1 Descrição da Infraestrutura de Implantação</h3>
+<p>O sistema é executado inteiramente em máquinas locais, por adotarmos a estratégia de construção com monorrepositório, e uma arquitetura cliente-servidor.</p>
+<ul>
+<li><strong>Cliente (Front-end):</strong> A aplicação é desenvolvida em <strong>React Native</strong> . Ela é executada em um emulador de dispositivo móvel (Android Studio ou iOS Simulator) ou em um dispositivo físico conectado à máquina de desenvolvimento.</li>
+<li><strong>Servidor (Back-end):</strong> Desenvolvido em <strong>Node.js</strong> com o framework <strong>Express</strong>. O Express é responsável por criar e gerenciar os endpoints da API RESTful.</li>
+<li><strong>Armazenamento de Dados:</strong> O sistema utiliza <strong>PostgreSQL</strong> para armazenamento de dados.</li>
+<li><strong>Comunicação:</strong> A aplicação React Native utiliza a biblioteca <strong>Axios</strong> para realizar as requisições HTTP (GET, POST, PUT, DELETE) aos <em>endpoints</em> expostos pela API Express. Para que essa comunicação entre "origens" diferentes (o app e a API, rodando em portas distintas) seja permitida, o <em>middleware</em> <strong>CORS</strong> (Cross-Origin Resource Sharing) está configurado no servidor Express.</li>
+<li><strong>Repositório:</strong> O código-fonte de todos os componentes (front-end e back-end) é gerenciado em um <strong>Monorepositório</strong> no GitHub.</li>
+</ul>
+<h3 id="252-justificativa-das-tecnologias">2.5.2 Justificativa das Tecnologias</h3>
+<p>A seleção de tecnologias foi baseada na simplicidade, produtividade e no objetivo de simular uma arquitetura de cliente-servidor em ambiente local.</p>
+<ul>
+<li><strong>Implantação Local (<code>localhost</code>):</strong> por ser um projeto acadêmico, não se enxergou motivos para adoção de uma hospedagem pela complexidade e os custos da configuração de provedores de nuvem (AWS, Azure).</li>
+<li><strong>Docker:</strong> Garante que todos os desenvolvedores e clientes executem instâncias idênticas do banco de dados PostgreSQL e dos serviços de back-end.</li>
+<li><strong>PostgreSQL:</strong> Escolhido por ser um banco de dados robusto, de código aberto e amplamente utilizado no mercado.</li>
+<li><strong>React Native:</strong> Selecionado por permitir o desenvolvimento de aplicações móveis para iOS e Android a partir de uma única base de código (codebase), otimizando o esforço de desenvolvimento.</li>
+<li><strong>Express (Node.js):</strong> Sendo uma ferramenta leve, flexível e performática, sendo ideal para a construção de APIs RESTful de forma rápida e eficiente.</li>
+<li><strong>Monorepositório:</strong> A abordagem de monorepo foi escolhida para facilitar a gestão do código, o compartilhamento de tipos e bibliotecas entre o front-end e o back-end, e simplificar a visualização do projeto como um todo, pelo fato de todo o projeto estar em um único repositório.</li>
+</ul>
+<hr>
+<h2 id="26-restricoes-adicionais">2.6 Restrições Adicionais</h2>
+<p>Esta aplicação foi projetada para atender restrições adicionais que garantem seu poder de negócio da aplicação, requisitos técnicos, qualidade e segurança dos dados de usuários.</p>
+<h3 id="261-restricoes-negociais">2.6.1 Restrições Negociais</h3>
+<ul>
+<li>O sistema destina-se à avaliação acadêmica, havendo planos para implantação em produção caso solicitado pela comunidade acadêmica.</li>
+<li>O projeto não deve gerar custos de infraestrutura, limitando-se a ferramentas gratuitas e de código aberto.</li>
+</ul>
+<h3 id="262-restricoes-tecnicas-pre-requisitos-de-ambiente">2.6.2 Restrições Técnicas (Pré-requisitos de Ambiente)</h3>
+<p>Para a correta execução e avaliação do projeto em um ambiente de desenvolvimento local, a máquina do usuário deve atender aos seguintes pré-requisitos de software:</p>
+<ul>
+<li><strong>Node.js:</strong> É necessária a instalação do Node.js.</li>
+<li><strong>Gerenciador de Pacotes <code>pnpm</code>:</strong> O projeto utiliza o <code>pnpm</code> para gerenciamento de dependências. Ele deve estar instalado e será o comando utilizado para instalar os pacotes.</li>
+<li><strong>Banco de Dados PostgreSQL:</strong> Um servidor de banco de dados PostgreSQL deve estar em execução e acessível pela máquina local. (apesar de citar o docker como estratégia de containerização, uma instalação local do PostgreSQL também é compatível).</li>
+<li><strong>App Móvel (Para Testes Físicos):</strong> Para executar o aplicativo em um dispositivo móvel físico (iOS ou Android), o usuário deve ter o aplicativo <strong>Expo Go</strong> instalado e estar conectado na mesma rede Wi-Fi que o computador que está executando o projeto.</li>
+</ul>
+<h3 id="263-restricoes-de-qualidade">2.6.3 Restrições de Qualidade</h3>
+<ul>
+<li><strong>Disponibilidade:</strong> O sistema deve estar funcional durante os períodos de desenvolvimento e para a apresentação final.</li>
+<li><strong>Testabilidade:</strong> O foco dos testes unitários e automatizados deve ser a integração local entre o aplicativo React Native e os <em>endpoints</em> da API, garantindo que os fluxos de dados ocorram corretamente.</li>
+</ul>
+<h3 id="264-restricoes-de-seguranca-e-conformidade">2.6.4 Restrições de Segurança e Conformidade</h3>
+<p>Embora este seja um projeto acadêmico sem o uso de dados pessoais reais, o design do sistema busca seguir conceitualmente os princípios da <strong>Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018)</strong>.</p>
+<p>O desenvolvimento da API (back-end) deve, como boa prática, mitigar os riscos de segurança mais críticos listados no <strong>OWASP</strong>, como <em>Injection</em> (Injeção de Código) e <em>Broken Authentication</em> (Autenticação Quebrada).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé">
+        
+          
+          <a href="../arquitetura_produto/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Arquitetura x Produto">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Arquitetura x Produto
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ref/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Referências">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Referências
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/FGA0138-MDS-Ajax/2025.2-Ra" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:241025523@aluno.unb.br" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../assets/javascript/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
